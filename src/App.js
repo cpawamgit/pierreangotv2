@@ -27,12 +27,17 @@ class App extends React.Component {
     this.state = {
       width : document.documentElement.clientWidth,
       height : document.documentElement.clientHeight,
+      language : "fr",
     }
     this.refresh = this.refresh.bind(this);
   }
 
   componentDidMount(){
     window.addEventListener('resize', this.refresh);
+  }
+
+  componentWillUnmount(){
+    window.removeEventListener('resize', this.refresh);
   }
 
   refresh(){
@@ -51,11 +56,11 @@ class App extends React.Component {
   chooseDisplay(ratio, size){
     let toDisplay = null;
     if (ratio < 1.6){
-      toDisplay = this.state.width > this.state.height ? <TabletLandscape/> : <TabletPortait/>
+      toDisplay = this.state.width > this.state.height ? <TabletLandscape language={this.state.language}/> : <TabletPortait language={this.state.language}/>
     } else if (size >= 1500){
-      toDisplay = this.state.width > this.state.height ? <PcLandscape/> : <PcPortait/>
+      toDisplay = this.state.width > this.state.height ? <PcLandscape language={this.state.language}/> : <PcPortait language={this.state.language}/>
     } else {
-      toDisplay = this.state.width > this.state.height ? <PhoneLandscape/> : <PhonePortait/>
+      toDisplay = this.state.width > this.state.height ? <PhoneLandscape language={this.state.language}/> : <PhonePortait language={this.state.language}/>
     }
     return toDisplay;
   }

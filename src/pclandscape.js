@@ -13,12 +13,12 @@ import Home from "./components/pclandscape/home";
 import About from "./components/pclandscape/about";
 import Scores from "./components/pclandscape/scores";
 
-function PcLandscape() {
+function PcLandscape(props) {
     return (
         <Router>
             <Switch>
                 <Route exact path="/">
-                    <Home />
+                    <Home language={props.language}/>
                 </Route>
             </Switch>
         </Router>

@@ -1,38 +1,222 @@
+/*------------------------------------------------------------------------------------------------------------
+-----------------------------------------------Main-----------------------------------------------------------
+------------------------------------------------------------------------------------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+
+
 .App {
-  text-align: center;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/*------------------------------------------------------------------------------------------------------------
+----------------------------------------Pc Landscape-(pcl)----------------------------------------------------
+------------------------------------------------------------------------------------------------------------*/
+
+
+/*---------------------------------------------Home---------------------------------------------------------*/
+
+.pcl-home-wrapper {
+    margin: 0;
+    padding: 0;
+    width: 80vw;
+    position: relative;
+    left: 10vw;
+    font-family: 'Courgette', cursive;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.pcl-background-container-global{
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 120vw;
+    overflow: hidden;
+    position: fixed;
+    z-index: -2;
+    background-color: rgb(255, 255, 255);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.pcl-background-container {
+    top: 0;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 80vw;
+    overflow: hidden;
+    position: fixed;
+    z-index: -1;
+    box-sizing: border-box;
+    background-color: white;
+    border-right: 2px solid black;
+    border-left: 2px solid black;
 }
 
-.App-link {
-  color: #61dafb;
+#pcl-piano-jpg{
+    opacity: 0.9;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.pcl-header {
+    position: relative;
+    margin: 0;
+    background-color: black;
+    text-align: center;
+    border-bottom-left-radius: 50% 30%;
 }
+.pcl-header > h1, ul, li{
+    color: white;
+}
+
+.pcl-nav{
+    position: relative;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-bottom: 1.5vh;
+    width: 45vw;
+    margin-left: auto;
+    font-size: calc(0.5vh + 1vw);
+}
+
+.pcl-nav-list{
+    color: white;
+    text-decoration: none;
+}
+
+.pcl-nav-list-container{
+    position: relative;
+}
+
+.pcl-nav-list-container::before{
+    content: '';
+    position: absolute;
+    background-color: rgb(182, 39, 39);
+    left: 5%;
+    bottom: -2px;
+    height: 2px;
+    width: 90%;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-out;
+}
+/* try to select the a via the container  like > and > etc then apply ::after for example*/
+.pcl-nav-list-container:hover::before{    
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+a:focus {
+    border-bottom: rgb(182, 39, 39) solid 2px;
+    outline: none;
+}
+
+
+#pcl-main-title {
+    margin: 0;
+    padding-top: 3vh;
+    padding-bottom: 2vh;
+    font-size: calc(2vw + 1vh);
+}
+
+
+
+.pcl-h2 {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.pcl-main{
+    position: relative;
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+
+#pcl-subtitle-container{
+    position: relative;
+    height: 60vh;
+    margin-top: 13vh;
+    margin-bottom: 7vh;
+    left: 5vw;
+}
+
+#pcl-subtitle{
+    position: sticky;
+    font-size: calc(1.75vw + 0.825vh);
+    top: 10vh;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+    text-shadow: 2px 2px 0px white;
+    text-decoration: underline 2px solid rgb(182, 39, 39);
+    line-height: 0;
+}
+/*
+#pcl-subtitle{
+    position: relative;
+    font-size: calc(1.75vw + 0.825vh);
+    margin-top: 23vh;
+    margin-bottom: 35vh;
+    left: 5vw;
+    padding-right: 0vw;
+    text-align: right;
+    text-shadow: 2px 2px 0px white;
+    text-decoration: underline 2px solid rgb(182, 39, 39);;
+}*/
+
+.pcl-main-text{
+    position: relative;
+    font-size: calc(0.5vh + 1vw);
+    line-height: 6vh;
+    margin-top: 3vh;
+    margin-bottom: 8vh;
+    text-shadow: 1px 1px 0px white;
+}
+
+.pcl-footer{
+    margin-top: 5vh;
+    min-height: 8vh;
+    color: white;
+    position: relative;
+    background-color: black;
+    border-top-right-radius: 50% 30%;
+}
+
+#pcl-footer-text{
+    margin-left: 5vw;
+    padding-top: 3vh;
+}
+
+#pcl-footer-text > a:link, #pcl-footer-text > a:visited, #pcl-footer-text > a:hover, #pcl-footer-text > a:active{
+    text-decoration: none;
+    color: white;
+}
+
+
+/*------------------------------------------------------------------------------------------------------------
+----------------------------------------Pc Portrait-(pcp)-----------------------------------------------------
+------------------------------------------------------------------------------------------------------------*/
+
+
+
+/*------------------------------------------------------------------------------------------------------------
+----------------------------------------Tablet Landscape-(tabl)-----------------------------------------------
+------------------------------------------------------------------------------------------------------------*/
+
+
+
+/*------------------------------------------------------------------------------------------------------------
+----------------------------------------Tablet Portrait-(tabp)------------------------------------------------
+------------------------------------------------------------------------------------------------------------*/
+
+
+
+/*------------------------------------------------------------------------------------------------------------
+----------------------------------------Phone Landscape-(phol)------------------------------------------------
+------------------------------------------------------------------------------------------------------------*/
+
+
+
+/*------------------------------------------------------------------------------------------------------------
+----------------------------------------Phone Portrait-(phop)-------------------------------------------------
+------------------------------------------------------------------------------------------------------------*/
