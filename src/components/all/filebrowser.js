@@ -61,12 +61,12 @@ function Browse(params) {
   let backButton = null;
   let buttonClass = null;
 
-  /*
-  function goToLink(params) {
-  
-    history.push(params);
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+    });
   }
-  */
+
   if (dirPath.length > 1) {
     let tmp = url.split("/");
     tmp.pop();
@@ -83,17 +83,15 @@ function Browse(params) {
     return <h1>File not found / Fichier non trouvé</h1>
   }
 
-
-  console.log(dirPath)
   if (!isFile) {
     let buttons = jsonPath.map(item => {
       if (item.type === "dir") {
         return (
-          <Link className="link folder-link" key={`${item.name}`} to={`${url}/${item.name}`}><button className="folder-btn">{item.name}</button></Link>
+          <Link onClick={scrollToTop} className="link folder-link" key={`${item.name}`} to={`${url}/${item.name}`}><button className="folder-btn">{item.name}</button></Link>
         );
       } else {
         return (
-          <Link className="link file-link" key={`${item.name}`} to={`${url}?file=${item.name}`}><button className="file-btn">{item.name}</button></Link>
+          <Link onClick={scrollToTop} className="link file-link" key={`${item.name}`} to={`${url}?file=${item.name}`}><button className="file-btn">{item.name}</button></Link>
         );
       }
     });
@@ -122,7 +120,7 @@ function Browse(params) {
     buttonClass = jsonPath.length > 20 ? "small-btn" : jsonPath.length > 8 ? "medium-btn" : "big-btn";
     let buttons = jsonPath.map(item => {
       return (
-        <Link className="link file-link" key={`${item.name}`} to={`${url}?file=${item.name}`}><button className="file-btn" >{item.name}</button></Link>
+        <Link onClick={scrollToTop} className="link file-link" key={`${item.name}`} to={`${url}?file=${item.name}`}><button className="file-btn" >{item.name}</button></Link>
       );
     });
     let buttonWrapper = <div className="btn-wrapper">
@@ -134,7 +132,7 @@ function Browse(params) {
     return (
       <div className="app-wrapper">
         {isDisplayed && buttonWrapper}
-        {isDisplayed && <Displayer fName={`${process.env.PUBLIC_URL}/${dirPath.join("/")}/${fName}`} />}
+        {isDisplayed && <Displayer fName={`/${dirPath.join("/")}/${fName}`} />}
         <Switch>
           <Route path={`${url}/:id`}>
             <Browse />
@@ -146,6 +144,7 @@ function Browse(params) {
 }
 
 function Displayer(props) {
+  console.log("fname:---------------------" + props.fName)
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
 

@@ -29,16 +29,16 @@ function Scores(props) {
     return (
         <div>
             <div id="pcl-background-container-global" className="pcl-background-container-global">
-                    <img src={`${process.env.PUBLIC_URL}/sitebackground2.png`} width="1920px"/>
-                    <img src={`${process.env.PUBLIC_URL}/sitebackground2.png`} width="1920px"/>
-                    <img src={`${process.env.PUBLIC_URL}/sitebackground2.png`} width="1920px"/>
+                    <img src="/sitebackground2.png" width="1920px"/>
+                    <img src="/sitebackground2.png" width="1920px"/>
+                    <img src="/sitebackground2.png" width="1920px"/>
                 </div>
             <div className="pcl-content-wrapper">
                 
                 <div id="pcl-background-container" className="pcl-background-container">
-                    <img id="center-bg" src={`${process.env.PUBLIC_URL}/berlin.jpg`}></img>
+                    <img id="center-bg" src="/berlin.jpg"></img>
                 </div>
-                <div className="pcl-header">
+                <div className="pcl-header-scores">
                     <h1 id="pcl-main-title">{language === "fr" ? "Pierre Angot, Compositeur Français" : "Pierre Angot, French Composer"}</h1>
                     <ul className="pcl-nav">
                         <div className="pcl-nav-list-container"><li><Link id="home-btn" className="pcl-nav-list" to="/">{language === "fr" ? "accueil" : "home"}</Link></li></div>
