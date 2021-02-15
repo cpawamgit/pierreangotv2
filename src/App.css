@@ -5,17 +5,141 @@
 
 
 .App {
+    
+}
 
+/****************************************File Browser********************************************************/
+
+.browse-wrapper{
+    position: relative;
+    width: 70vw;
+    margin-left: 5vw;
+    margin-top: 5vh;
+    min-height: 100vh;
+}
+
+.btn-wrapper{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    flex-wrap: wrap;
+}
+
+.doc-wrapper{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: white;
+}
+
+#center-bg{
+    opacity: 0.5;
+}
+
+button{    
+    font-size: calc(0.4vh + 0.8vw);
+    box-sizing: border-box;
+    cursor: pointer;
+    font-family: 'Courgette', cursive;
+}
+
+.link{
+    margin: 1vh 1vw 1vh 1vw;
+    height: fit-content;
+    opacity: 0.8;
+    transition: opacity 0.3s ease-out;
+}
+
+.link:hover{
+    opacity: 1;
+}
+
+.file-link{
+    margin: 2vh 2vw 2vh 2vw;
+}
+
+.back-btn{
+    height: 10vh;
+    width: 8vw;
+}
+
+.folder-btn{
+    height: 10vh;
+    width: 8vw;
+}
+
+.file-btn{
+    position: relative;
+    height: 30vh;
+    width: 12vw;
+    border: 1px solid black;
+    border-bottom-right-radius: 10% 30%;
+    background-color: rgb(252, 250, 246);
+    transition: font-size 0.3s ease-out, background-color 0.3s ease-out;
+}
+
+.file-btn::before{
+    content: '';
+    position: absolute;
+    height: 80%;
+    width: 80%;
+    background: url('./sitebackground.png');
+    background-size: 100%;
+    top: 10%;
+    left: 10%;
+    opacity: 0.1;
+    transition: opacity 0.3s ease-out;
+}
+
+.file-btn:hover{
+    font-size: calc(0.5vh + 1vw);
+    background-color: rgb(255, 253, 250);
+}
+
+.file-btn:hover::before{ 
+    opacity: 0.3;
+}
+
+.btns-appear{
+    transform: scale(0);
+  }
+  
+.btns-appear-active{
+    transition: transform 0.3s ease-out;
+    transform-origin: center;
+    transform: scale(1);
+}
+
+.btns-enter{
+    transform: scale(0);
+}
+
+.btns-enter-active{
+    transition: transform 0.3s ease-out;
+    transform-origin: center;
+    transform: scale(1);
+}
+
+.btns-exit{
+    transform: scale(1);
+}
+
+.btns-exit-active{
+    transition: transform 0.3s ease-out;
+    transform-origin: center;
+    transform: scale(0);
 }
 
 /*------------------------------------------------------------------------------------------------------------
 ----------------------------------------Pc Landscape-(pcl)----------------------------------------------------
 ------------------------------------------------------------------------------------------------------------*/
 
-
-/*---------------------------------------------Home---------------------------------------------------------*/
-
-.pcl-home-wrapper {
+.pcl-content-wrapper {
     margin: 0;
     padding: 0;
     width: 80vw;
@@ -53,7 +177,7 @@
 }
 
 #pcl-piano-jpg{
-    opacity: 0.9;
+
 }
 
 .pcl-header {
@@ -135,21 +259,32 @@ a:focus {
 #pcl-subtitle-container{
     position: relative;
     height: 60vh;
-    margin-top: 13vh;
+    margin-top: 8vh;
     margin-bottom: 7vh;
-    left: 5vw;
+    left: 38vw;
+    width: fit-content;
 }
 
 #pcl-subtitle{
     position: sticky;
     font-size: calc(1.75vw + 0.825vh);
-    top: 10vh;
+    top: 20vh;
     margin: 0;
     padding: 0;
     text-align: right;
-    text-shadow: 2px 2px 0px white;
-    text-decoration: underline 2px solid rgb(182, 39, 39);
+    text-shadow: 0px 0px 15px white;
+    /*text-decoration: underline 2px solid rgb(182, 39, 39);*/
     line-height: 0;
+}
+
+#pcl-subtitle::before{
+    content: '';
+    position: absolute;
+    left: 5%;
+    width: 90%;
+    height: 2px;
+    bottom: -20px;
+    background-color: rgb(182, 39, 39);
 }
 /*
 #pcl-subtitle{

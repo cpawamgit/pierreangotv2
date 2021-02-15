@@ -20,6 +20,9 @@ function PcLandscape(props) {
                 <Route exact path="/">
                     <Home language={props.language}/>
                 </Route>
+                <Route path="/scores">
+                    <Scores language={props.language}/>
+                </Route>
             </Switch>
         </Router>
     );
