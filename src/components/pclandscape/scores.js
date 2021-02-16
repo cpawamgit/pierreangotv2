@@ -9,8 +9,6 @@ function Scores(props) {
         let posScroll = window.scrollY;
         let container = document.getElementById("pcl-background-container");
         let gContainer = document.getElementById("pcl-background-container-global");
-        let scoresBtn = document.getElementById("scores-btn");
-        scoresBtn.focus();
         document.addEventListener('scroll', (e) => {
             posScroll = window.scrollY;
             container.scrollTop = posScroll * 0.46;
@@ -36,15 +34,15 @@ function Scores(props) {
             <div className="pcl-content-wrapper">
                 
                 <div id="pcl-background-container" className="pcl-background-container">
-                    <img id="center-bg" src="/berlin.jpg"></img>
+                    <img id="center-bg" src="/concert-hall.jpg"></img>
                 </div>
                 <div className="pcl-header-scores">
                     <h1 id="pcl-main-title">{language === "fr" ? "Pierre Angot, Compositeur Français" : "Pierre Angot, French Composer"}</h1>
                     <ul className="pcl-nav">
-                        <div className="pcl-nav-list-container"><li><Link id="home-btn" className="pcl-nav-list" to="/">{language === "fr" ? "accueil" : "home"}</Link></li></div>
-                        <div className="pcl-nav-list-container"><li><Link id="scores-btn" className="pcl-nav-list" to="/scores">{language === "fr" ? "explorer les partitions" : "browse the scores"}</Link></li></div>
-                        <div className="pcl-nav-list-container"><li><a className="pcl-nav-list" href="https://fr.wikipedia.org/wiki/Pierre_Angot" target="_blank" rel="norefferer">{language === "fr" ? "wikipedia" : "wikipedia"}</a></li></div>
-                        <div className="pcl-nav-list-container"><li><Link className="pcl-nav-list" to="/about">{language === "fr" ? "tarifs et droits d'utilisation" : "Tariffs and rights of use"}</Link></li></div>
+                        <div className="pcl-nav-list-container"><li><Link id="home-btn" className="pcl-nav-list link-bg" to="/">{language === "fr" ? "accueil" : "home"}</Link></li></div>
+                        <div className="pcl-nav-list-container"><li><Link id="scores-btn" className="pcl-nav-list link-bg" to="/scores">{language === "fr" ? "explorer les partitions" : "browse the scores"}</Link></li></div>
+                        <div className="pcl-nav-list-container"><li><a className="pcl-nav-list link-bg" href="https://fr.wikipedia.org/wiki/Pierre_Angot" target="_blank" rel="norefferer">{language === "fr" ? "wikipedia" : "wikipedia"}</a></li></div>
+                        <div className="pcl-nav-list-container"><li><Link className="pcl-nav-list link-bg" to="/about">{language === "fr" ? "tarifs et droits d'utilisation" : "Tariffs and rights of use"}</Link></li></div>
                     </ul>
                 </div>
                 <FileBrowser />

@@ -18,10 +18,10 @@ function PcLandscape(props) {
         <Router>
             <Switch>
                 <Route exact path="/">
-                    <Home language={props.language}/>
+                    <Home language={props.language} toggleLanguage={props.toggleLanguage}/>
                 </Route>
                 <Route path="/scores">
-                    <Scores language={props.language}/>
+                    <Scores language={props.language} toggleLanguage={props.toggleLanguage}/>
                 </Route>
             </Switch>
         </Router>

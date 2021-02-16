@@ -1,22 +1,35 @@
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import concert from "../../concert3.jpg";
 
 function Home(props) {
     let language = props.language;
-    
+    let [isReady, setIsReady] = useState(false);
+
     useEffect(() => {
+        let piano;
+        let container;
+        let gContainer;
+        //setting images--------------
+        const bg = new Image();
+        bg.onload = () => {
+            setIsReady(true);
+            piano = document.getElementById("pcl-piano-jpg");
+            container = document.getElementById("pcl-background-container");
+            gContainer = document.getElementById("pcl-background-container-global");
+        }
+        bg.src = concert;
+        bg.id = "pcl-piano-jpg";
+        bg.width = "1900px"
+
+        //---------------------------
         let posScroll = window.scrollY;
-        let container = document.getElementById("pcl-background-container");
-        let gContainer = document.getElementById("pcl-background-container-global");
-        let piano = document.getElementById("pcl-piano-jpg");
-        let homeBtn = document.getElementById("home-btn");
-        homeBtn.focus();
         document.addEventListener('scroll', (e) => {
             posScroll = window.scrollY;
-            if (posScroll < 900){
+            if (posScroll < 900) {
                 piano.style.opacity = 1 - (posScroll / 1000)
-            } else if (posScroll === 0){
+            } else if (posScroll === 0) {
                 piano.style.opacity = 1
             }
             container.scrollTop = posScroll * 0.46;
@@ -32,17 +45,18 @@ function Home(props) {
         }
     }, [])
 
-    return (
+    return isReady ? (
         <div>
+            <button id="language" onClick={props.toggleLanguage}><img src={props.language === "fr" ? "./union jack.png" : "./french flag.png"}/></button>
             <div id="pcl-background-container-global" className="pcl-background-container-global">
-                    <img src="sitebackground2.png" width="1920px"/>
-                    <img src="sitebackground2.png" width="1920px"/>
-                    <img src="sitebackground2.png" width="1920px"/>
-                </div>
+                <img src="sitebackground2.png" width="1920px" />
+                <img src="sitebackground2.png" width="1920px" />
+                <img src="sitebackground2.png" width="1920px" />
+            </div>
             <div className="pcl-content-wrapper">
-                
+
                 <div id="pcl-background-container" className="pcl-background-container">
-                    <img id="pcl-piano-jpg" src="concert3.jpg" width="1900px"/>
+                    <img src={concert} id="pcl-piano-jpg" width="1900px" />
                 </div>
                 <div className="pcl-header">
                     <CSSTransition
@@ -51,25 +65,32 @@ function Home(props) {
                         timeout={2000}
                         appear={true}
                     >
-                    <h1 id="pcl-main-title">{language === "fr" ? "Pierre Angot, Compositeur Français" : "Pierre Angot, French Composer"}</h1>
+                        <h1 id="pcl-main-title">{language === "fr" ? "Pierre Angot, Compositeur Français" : "Pierre Angot, French Composer"}</h1>
                     </CSSTransition>
+                    <CSSTransition
+                        in={true}
+                        classNames="nav"
+                        timeout={4000}
+                        appear={true}
+                    >
                     <ul className="pcl-nav">
                         <div className="pcl-nav-list-container"><li><Link id="home-btn" className="pcl-nav-list" to="/">{language === "fr" ? "accueil" : "home"}</Link></li></div>
                         <div className="pcl-nav-list-container"><li><Link className="pcl-nav-list" to="/scores/sitePdfs">{language === "fr" ? "explorer les partitions" : "browse the scores"}</Link></li></div>
                         <div className="pcl-nav-list-container"><li><a className="pcl-nav-list" href="https://fr.wikipedia.org/wiki/Pierre_Angot" target="_blank" rel="norefferer">{language === "fr" ? "wikipedia" : "wikipedia"}</a></li></div>
                         <div className="pcl-nav-list-container"><li><Link className="pcl-nav-list" to="/about">{language === "fr" ? "tarifs et droits d'utilisation" : "Tariffs and rights of use"}</Link></li></div>
                     </ul>
+                    </CSSTransition>
                 </div>
                 <div className="pcl-main">
                     <div id="pcl-subtitle-container">
-                    <CSSTransition
-                        in={true}
-                        classNames="sub-title"
-                        timeout={4000}
-                        appear={true}
-                    >
-                    <h2 id="pcl-subtitle">{language === "fr" ? "\"Ajouter et ne rien détruire\"" : "\"Add and do not destroy\""}</h2>
-                    </CSSTransition>
+                        <CSSTransition
+                            in={true}
+                            classNames="sub-title"
+                            timeout={6000}
+                            appear={true}
+                        >
+                            <h2 id="pcl-subtitle">{language === "fr" ? "\"Ajouter et ne rien détruire\"" : "\"Add and do not destroy\""}</h2>
+                        </CSSTransition>
                     </div>
                     <p className="pcl-main-text">{language === "fr" ? "Pierre ANGOT est un compositeur français né en Normandie , le premier mars 1958." : "Pierre ANGOT is a French composer born in Normandy on March 1, 1958."}</p>
                     <p className="pcl-main-text">{language === "fr" ? "Dans sa jeunesse il fût autant musicien de jazz que d'orchestre, il sera aussi professeur de basson." : "In his youth he was as much a jazz musician as an orchestra, he was also a bassoon teacher."}</p>
@@ -82,7 +103,7 @@ function Home(props) {
                 </div>
             </div>
         </div>
-    );
+    ) : null;
 }
 
 export default Home;

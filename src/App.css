@@ -150,27 +150,87 @@ button{
 
 .title-appear{
     transform: translateX(-100vw);
+    opacity: 0;
 }
 
 .title-appear-active{
     transform: translateX(0);
-    transition: transform 2s ease-out;
-    
+    opacity: 1;
+    transition: transform 2s ease-out, opacity 2s ease-out;
+}
+
+.title-appear-done{
+    transform: translateX(0);
+    opacity: 1;
 }
 
 .sub-title-appear{
     transform: translateX(100vw);
-    
-    
+    color: white;
+    opacity: 0;  
+}
+
+.nav-appear{
+    opacity: 0;
+}
+
+.nav-appear-active{
+    opacity: 1;
+    transition: opacity 2s ease-out;
+    transition-property: opacity;
+    transition-delay: 2s;
+}
+
+.sub-title-appear::before{
+    transform: scaleX(0);  
+}
+
+.sub-title-appear-active::before{
+    transform-origin: left;
+    transform: scaleX(1);
+    transition: transform 2s;
+    transition-timing-function: cubic-bezier(0,.63,1,-0.28);
+    transition-property: transform;
+    transition-delay: 4s;
 }
 
 .sub-title-appear-active{   
-    transform: translateX(0);    
-    transition: transform 2s ease-out;
+    transform: translateX(0);
+    color: black;    
+    opacity: 1;
+    transition: transform 2s ease-out, color 2s ease-out, opacity 2s ease-out;
+    transition-property: transform, color, opacity;
     transition-delay: 2s;
-    transition-property: transform;
     
+    /* transition: color 2s ease-out;
+    transition-property: transform;
+    transition-delay: 2s; */
 }
+
+.sub-title-appear-done{   
+    transform: translateX(0);
+    color: black;    
+    opacity: 1;
+}
+
+/* .sub-title-enter{
+    transform: translateX(100vw);
+    color: white;
+    opacity: 0;  
+}
+
+.sub-title-enter-active{   
+    transform: translateX(0);
+    color: black;    
+    opacity: 0.3;
+    transition: transform 2s ease-out, color 2s ease-out, opacity 2s ease-out;
+    transition-property: transform, color, opacity;
+    transition-delay: 2s; */
+    
+    /* transition: color 2s ease-out;
+    transition-property: transform;
+    transition-delay: 2s; 
+}*/
 
 .pcl-content-wrapper {
     margin: 0;
@@ -251,6 +311,11 @@ button{
 .pcl-nav-list{
     color: white;
     text-decoration: none;
+    text-shadow: 2px 2px 6px black;
+}
+
+.link-bg{
+
 }
 
 .pcl-nav-list-container{
@@ -314,13 +379,14 @@ a:focus {
 #pcl-subtitle{
     position: sticky;
     font-size: calc(1.75vw + 0.825vh);
-    top: 20vh;
+    top: 25vh;
     margin: 0;
     padding: 0;
     text-align: right;
     text-shadow: 0px 0px 30px white;
     /*text-decoration: underline 2px solid rgb(182, 39, 39);*/
     line-height: 0;
+
 }
 
 #pcl-subtitle::before{
@@ -331,6 +397,18 @@ a:focus {
     height: 2px;
     bottom: -20px;
     background-color: rgb(182, 39, 39);
+}
+
+#pcl-subtitle::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: -20px;
+    height: calc(0.8vh + 1.6vw);
+    background: rgba(255, 255, 255, 0.034);
+    z-index: -33;
+    border-radius: 10% 20%;
 }
 /*
 #pcl-subtitle{
