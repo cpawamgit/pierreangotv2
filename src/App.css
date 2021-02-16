@@ -38,14 +38,83 @@
     flex-wrap: wrap;
 }
 
-.doc-wrapper{
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-  background: white;
+.display-wrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
 }
+
+.doc-wrapper{
+    margin: 0;
+    padding: 0;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.doc{
+    margin-left: 15vw;
+    width: 70vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.double-pdf{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+#btn-container{
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 70vw;
+    margin-left: 15vw;
+    pointer-events: none;
+    z-index: 2;
+}
+
+#previous-btn{
+    position: absolute;
+    top: 45vh;
+    left: 10vw;
+    pointer-events: all;
+  }
+  
+  #next-btn{
+    position: absolute;
+    top: 45vh;
+    right: 10vw;
+    pointer-events: all;
+  }
+  
+  #zoom{
+    position: absolute;
+    top: 50vh;
+    right: 10vw;
+    pointer-events: all;
+  }
+  
+  #unzoom{
+    position: absolute;
+    top: 50vh;
+    left: 10vw;
+    pointer-events: all;
+  }
+  
+  #page-counter{
+    position: absolute;
+    bottom: 0;
+    left: 45%;
+  }
 
 #center-bg{
     opacity: 0.5;
@@ -82,12 +151,7 @@ button{
     margin: 2vh 2vw 2vh 2vw;
 }
 
-.back-btn{
-    height: 10vh;
-    width: 8vw;
-}
-
-.folder-btn{
+.folder-btn, .back-btn{
     height: 10vh;
     width: 8vw;
     border: none;

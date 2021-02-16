@@ -81,20 +81,19 @@ function Browse(params) {
         {actualPath === url && buttonWrapper}
         <TransitionGroup>
           <CSSTransition
-          key={location.pathname}
-          classNames="btns"
-          timeout={300}
-          appear={true}
+            key={location.pathname}
+            classNames="btns"
+            timeout={300}
+            appear={true}
           >
-        <Switch location={location}>
-          <Route path={`${url}/:id`} children={<Browse/>}/>
-        </Switch>
-        </CSSTransition>
+            <Switch location={location}>
+              <Route path={`${url}/:id`} children={<Browse />} />
+            </Switch>
+          </CSSTransition>
         </TransitionGroup>
       </div>
     );
   } else {
-    buttonClass = jsonPath.length > 20 ? "small-btn" : jsonPath.length > 8 ? "medium-btn" : "big-btn";
     let buttons = jsonPath.map(item => {
       return (
         <Link onClick={scrollToTop} className="link file-link" key={`${item.name}`} to={`${url}?file=${item.name}`}><button className="file-btn" >{item.name}</button></Link>
@@ -123,6 +122,8 @@ function Browse(params) {
 function Displayer(props) {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
+  const [buttonOpacity, setButtonOpacity] = useState(0.2);
+  const [scale, setScale] = useState(1);
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
@@ -141,25 +142,63 @@ function Displayer(props) {
     changePage(1);
   }
 
+  function upButtonOpacity() {
+    setButtonOpacity(1);
+  }
+
+  function downButtonOpacity() {
+    setButtonOpacity(0.2);
+  }
+
+  function upScale() {
+    setScale((prev) => prev + 0.2)
+  }
+
+  function downScale() {
+    setScale((prev) => prev - 0.2)
+  }
+
+
+  const pages = props.fName.match(/a3/i) ?
+    <Page pageNumber={pageNumber}
+      scale={1}
+      height={document.documentElement.clientHeight} />
+    :
+    <div className="double-pdf">
+      <Page pageNumber={pageNumber}
+        scale={scale}
+        height={document.documentElement.clientHeight} />
+      <Page pageNumber={pageNumber + 1}
+        scale={scale}
+        height={document.documentElement.clientHeight} />
+    </div>;
+
   return (
-    <div className="doc-wrapper">
-    <>
-      <Document
-        file={props.fName}
-        onLoadSuccess={onDocumentLoadSuccess}
+    <div className="display-wrapper">
+      <div className="doc-wrapper">
+        <Document
+          file={props.fName}
+          onLoadSuccess={onDocumentLoadSuccess}
+          onMouseEnter={upButtonOpacity}
+          onMouseLeave={downButtonOpacity}
+          className="doc"
+        >
+          {pages}
+        </Document>
+      </div>
+      <div id="btn-container"
+        onMouseEnter={upButtonOpacity}
+        onMouseLeave={downButtonOpacity}
       >
-        <Page pageNumber={pageNumber}
-          scale={1}
-          height={document.documentElement.clientHeight} />
-      </Document>
-      <div>
-        <p>
+        <p id="page-counter">
           Page {pageNumber || (numPages ? 1 : '--')} of {numPages || '--'}
         </p>
         <button
           type="button"
           disabled={pageNumber <= 1}
           onClick={previousPage}
+          id="previous-btn"
+          style={{ opacity: buttonOpacity }}
         >
           Previous
         </button>
@@ -167,12 +206,28 @@ function Displayer(props) {
           type="button"
           disabled={pageNumber >= numPages}
           onClick={nextPage}
+          id="next-btn"
+          style={{ opacity: buttonOpacity }}
         >
           Next
         </button>
-        <h1>{props.fName}</h1>
+        <button
+          id="zoom"
+          type="button"
+          onClick={upScale}
+          style={{ opacity: buttonOpacity }}
+        >
+          zoom
+        </button>
+        <button
+          id="unzoom"
+          type="button"
+          onClick={downScale}
+          style={{ opacity: buttonOpacity }}
+        >
+          unzoom
+        </button>
       </div>
-    </>
     </div>
   );
 }

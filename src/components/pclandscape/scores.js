@@ -1,14 +1,26 @@
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import FileBrowser from "../../components/all/filebrowser";
+import concert from "../../concert-hall.jpg";
 
 function Scores(props) {
     let language = props.language;
+    let [isReady, setIsReady] = useState(false);
     
     useEffect(() => {
         let posScroll = window.scrollY;
-        let container = document.getElementById("pcl-background-container");
-        let gContainer = document.getElementById("pcl-background-container-global");
+        let container;
+        let gContainer;
+        //setting images--------------
+        const bg = new Image();
+        bg.onload = () => {
+            setIsReady(true);
+            container = document.getElementById("pcl-background-container");
+            gContainer = document.getElementById("pcl-background-container-global");
+        }
+        bg.src = concert;
+        bg.id = "pcl-piano-jpg";
+        bg.width = "1900px"
         document.addEventListener('scroll', (e) => {
             posScroll = window.scrollY;
             container.scrollTop = posScroll * 0.46;
@@ -23,8 +35,7 @@ function Scores(props) {
             });
         }
     }, [])
-
-    return (
+    return isReady ? (
         <div>
             <div id="pcl-background-container-global" className="pcl-background-container-global">
                     <img src="/sitebackground2.png" width="1920px"/>
@@ -34,7 +45,7 @@ function Scores(props) {
             <div className="pcl-content-wrapper">
                 
                 <div id="pcl-background-container" className="pcl-background-container">
-                    <img id="center-bg" src="/concert-hall.jpg"></img>
+                    <img id="center-bg" src={concert}></img>
                 </div>
                 <div className="pcl-header-scores">
                     <h1 id="pcl-main-title">{language === "fr" ? "Pierre Angot, Compositeur Français" : "Pierre Angot, French Composer"}</h1>
@@ -51,7 +62,7 @@ function Scores(props) {
                 </div>
             </div>
         </div>
-    );
+    ) : null;
 }
 
 export default Scores;
