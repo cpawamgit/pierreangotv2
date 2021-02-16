@@ -8,7 +8,17 @@
     
 }
 
+#language{
+    position: absolute;
+    margin-top: -9vh;
+    margin-left: 10vw;
+    border: none;
+}
+
 /****************************************File Browser********************************************************/
+
+.home-main-wrapper{
+}
 
 .browse-wrapper{
     position: relative;
@@ -80,6 +90,11 @@ button{
 .folder-btn{
     height: 10vh;
     width: 8vw;
+    border: none;
+    border-top: 1px solid rgb(255, 255, 255);
+    border-left: 1px solid rgb(255, 255, 255);
+    border-right: 1px solid rgb(97, 97, 97);
+    border-bottom: 1px solid rgb(97, 97, 97);
 }
 
 .file-btn{
@@ -312,10 +327,6 @@ button{
     color: white;
     text-decoration: none;
     text-shadow: 2px 2px 6px black;
-}
-
-.link-bg{
-
 }
 
 .pcl-nav-list-container{

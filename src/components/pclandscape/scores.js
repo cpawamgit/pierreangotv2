@@ -40,7 +40,7 @@ function Scores(props) {
                     <h1 id="pcl-main-title">{language === "fr" ? "Pierre Angot, Compositeur Français" : "Pierre Angot, French Composer"}</h1>
                     <ul className="pcl-nav">
                         <div className="pcl-nav-list-container"><li><Link id="home-btn" className="pcl-nav-list link-bg" to="/">{language === "fr" ? "accueil" : "home"}</Link></li></div>
-                        <div className="pcl-nav-list-container"><li><Link id="scores-btn" className="pcl-nav-list link-bg" to="/scores">{language === "fr" ? "explorer les partitions" : "browse the scores"}</Link></li></div>
+                        {/* {<div className="pcl-nav-list-container"><li><Link id="scores-btn" className="pcl-nav-list link-bg" to="/scores">{language === "fr" ? "explorer les partitions" : "browse the scores"}</Link></li></div>} */}
                         <div className="pcl-nav-list-container"><li><a className="pcl-nav-list link-bg" href="https://fr.wikipedia.org/wiki/Pierre_Angot" target="_blank" rel="norefferer">{language === "fr" ? "wikipedia" : "wikipedia"}</a></li></div>
                         <div className="pcl-nav-list-container"><li><Link className="pcl-nav-list link-bg" to="/about">{language === "fr" ? "tarifs et droits d'utilisation" : "Tariffs and rights of use"}</Link></li></div>
                     </ul>

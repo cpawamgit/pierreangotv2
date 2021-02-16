@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route,
   Link,
@@ -14,30 +14,7 @@ import { Document, Page } from 'react-pdf';
 import { pdfjs } from 'react-pdf';
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
-/*
-function App() {
-  return (
-    <div>
-      {<RecursiveExample />}
-    </div>
-  )
-}
 
-function RecursiveExample() {
-  return (
-    <Router>
-          <Switch>
-            <Route path="/browse">
-              <FileBrowser/>
-            </Route>
-            <Route exact path="/">
-              <Redirect to={`/browse/sitePdfs`} />
-            </Route>
-          </Switch>
-    </Router>
-  );
-}
-*/
 function FileBrowser() {
   return (
     <div className="browse-wrapper">
@@ -104,7 +81,7 @@ function Browse(params) {
         {actualPath === url && buttonWrapper}
         <TransitionGroup>
           <CSSTransition
-          key={location.key}
+          key={location.pathname}
           classNames="btns"
           timeout={300}
           appear={true}
@@ -144,7 +121,6 @@ function Browse(params) {
 }
 
 function Displayer(props) {
-  console.log("fname:---------------------" + props.fName)
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
 

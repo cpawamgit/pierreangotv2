@@ -2,7 +2,7 @@ import './App.css';
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import React, { useState } from "react";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route,
   Link,
