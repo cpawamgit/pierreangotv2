@@ -12,6 +12,7 @@ import {
 import Home from "./components/pclandscape/home";
 import About from "./components/pclandscape/about";
 import Scores from "./components/pclandscape/scores";
+import Displayer from "./components/all/displayer";
 
 function PcLandscape(props) {
     return (
@@ -22,6 +23,9 @@ function PcLandscape(props) {
                 </Route>
                 <Route path="/scores">
                     <Scores language={props.language} toggleLanguage={props.toggleLanguage}/>
+                </Route>
+                <Route path="/displayer">
+                    <Displayer/>
                 </Route>
             </Switch>
         </Router>

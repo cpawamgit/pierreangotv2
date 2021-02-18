@@ -48,7 +48,6 @@ class App extends React.Component {
 // };
 
 toggleLanguage(){
-  console.log("iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiin")
   this.setState((prevState) => {
     return {language: prevState.language === "fr" ?  "en" : "fr"};
   })
