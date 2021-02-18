@@ -19,7 +19,6 @@ function Scores(props) {
             gContainer = document.getElementById("pcl-background-container-global");
         }
         bg.src = concert;
-        bg.id = "pcl-piano-jpg";
         bg.width = "1900px"
         document.addEventListener('scroll', (e) => {
             posScroll = window.scrollY;
@@ -45,7 +44,7 @@ function Scores(props) {
             <div className="pcl-content-wrapper">
                 
                 <div id="pcl-background-container" className="pcl-background-container">
-                    <img id="center-bg" src={concert}></img>
+                    <img id="center-bg" src={concert} width="1800px"></img>
                 </div>
                 <div className="pcl-header-scores">
                     <h1 id="pcl-main-title">{language === "fr" ? "Pierre Angot, Compositeur Français" : "Pierre Angot, French Composer"}</h1>

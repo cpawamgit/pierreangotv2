@@ -13,7 +13,17 @@
     margin-top: -9vh;
     margin-left: 10vw;
     border: none;
+    animation-name: language-appear;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-delay: 6s;
+    opacity: 0;
 }
+
+@keyframes language-appear{
+    from{opacity: 0;}
+    to{opacity: 1;}
+  }
 
 /****************************************File Browser********************************************************/
 
@@ -44,6 +54,7 @@
     left: 0;
     height: 100vh;
     width: 100vw;
+    background-color: rgba(0, 0, 0, 0.664);
 }
 
 .doc-wrapper{
@@ -76,8 +87,7 @@
     position: absolute;
     top: 0;
     height: 100vh;
-    width: 70vw;
-    margin-left: 15vw;
+    width: 100vw;
     pointer-events: none;
     z-index: 2;
 }
@@ -134,7 +144,7 @@ button{
 .link{
     margin: 1vh 1vw 1vh 1vw;
     height: fit-content;
-    background-color: rgba(212, 212, 212, 0.473);
+    background-color: rgb(226, 226, 226);
     border: none;
     border-radius: 10%;
     opacity: 0.7;
@@ -144,7 +154,7 @@ button{
 
 .link:hover{
     opacity: 1;
-    background-color: rgba(233, 233, 233, 0.795);
+    background-color: rgba(233, 233, 233, 0.932);
 }
 
 .file-link{
@@ -226,6 +236,10 @@ button{
 /*------------------------------------------------------------------------------------------------------------
 ----------------------------------------Pc Landscape-(pcl)----------------------------------------------------
 ------------------------------------------------------------------------------------------------------------*/
+#svg-anim{
+    position: absolute;
+    z-index: 5;
+}
 
 .title-appear{
     transform: translateX(-100vw);
@@ -245,7 +259,7 @@ button{
 
 .sub-title-appear{
     transform: translateX(100vw);
-    color: white;
+    color: black;
     opacity: 0;  
 }
 
@@ -275,7 +289,7 @@ button{
 
 .sub-title-appear-active{   
     transform: translateX(0);
-    color: black;    
+    color: white;    
     opacity: 1;
     transition: transform 2s ease-out, color 2s ease-out, opacity 2s ease-out;
     transition-property: transform, color, opacity;
@@ -288,7 +302,7 @@ button{
 
 .sub-title-appear-done{   
     transform: translateX(0);
-    color: black;    
+    color: white;    
     opacity: 1;
 }
 
@@ -346,10 +360,21 @@ button{
     background-color: white;
     border-right: 2px solid black;
     border-left: 2px solid black;
+    display: flex;
+    justify-content: center;
 }
 
 #pcl-piano-jpg{
+    position: absolute;
+}
 
+#black-bg{
+    position: absolute;
+    background-color: rgb(0, 0, 0);
+    height: 60vh;
+    width: 100vw;
+    top: 1020px;
+    z-index: -5;
 }
 
 .pcl-header {
@@ -383,7 +408,7 @@ button{
     justify-content: space-around;
     padding-bottom: 1.5vh;
     width: 45vw;
-    margin-left: 30vw;
+    margin-left: 20vw;
     font-size: calc(0.5vh + 1vw);
 }
 
@@ -447,18 +472,17 @@ a:focus {
     height: 60vh;
     margin-top: 8vh;
     margin-bottom: 7vh;
-    left: 32vw;
+    left: 20vw;
     width: fit-content;
 }
 
 #pcl-subtitle{
     position: sticky;
-    font-size: calc(1.75vw + 0.825vh);
+    font-size: calc(1.5vw + 0.75vh);
     top: 25vh;
     margin: 0;
     padding: 0;
     text-align: right;
-    text-shadow: 0px 0px 30px white;
     /*text-decoration: underline 2px solid rgb(182, 39, 39);*/
     line-height: 0;
 
@@ -475,7 +499,7 @@ a:focus {
 }
 
 #pcl-subtitle::after{
-    content: '';
+    /* content: '';
     position: absolute;
     left: 0;
     width: 100%;
@@ -483,7 +507,7 @@ a:focus {
     height: calc(0.8vh + 1.6vw);
     background: rgba(255, 255, 255, 0.034);
     z-index: -33;
-    border-radius: 10% 20%;
+    border-radius: 10% 20%; */
 }
 /*
 #pcl-subtitle{

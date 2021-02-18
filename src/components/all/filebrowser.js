@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   HashRouter as Router,
   Switch,
@@ -37,6 +37,55 @@ function Browse(params) {
   dirPath = dirPath.slice(2);
   let backButton = null;
   let buttonClass = null;
+
+  useEffect(() => {
+    document.addEventListener('DOMContentLoaded', dragFunctionfunction);
+    return () => {document.removeEventListener('DOMContentLoaded', dragFunctionfunction)};
+  }, []);
+
+  function dragFunctionfunction() {
+    const ele = document.getElementById('doc-wrapper');
+    ele.style.cursor = 'grab';
+
+    let pos = { top: 0, left: 0, x: 0, y: 0 };
+
+    const mouseDownHandler = function (e) {
+      ele.style.cursor = 'grabbing';
+      ele.style.userSelect = 'none';
+
+      pos = {
+        left: ele.scrollLeft,
+        top: ele.scrollTop,
+        // Get the current mouse position
+        x: e.clientX,
+        y: e.clientY,
+      };
+
+      document.addEventListener('mousemove', mouseMoveHandler);
+      document.addEventListener('mouseup', mouseUpHandler);
+    };
+
+    const mouseMoveHandler = function (e) {
+      // How far the mouse has been moved
+      const dx = e.clientX - pos.x;
+      const dy = e.clientY - pos.y;
+
+      // Scroll the element
+      ele.scrollTop = pos.top - dy;
+      ele.scrollLeft = pos.left - dx;
+    };
+
+    const mouseUpHandler = function () {
+      ele.style.cursor = 'grab';
+      ele.style.removeProperty('user-select');
+
+      document.removeEventListener('mousemove', mouseMoveHandler);
+      document.removeEventListener('mouseup', mouseUpHandler);
+    };
+
+    // Attach the handler
+    ele.addEventListener('mousedown', mouseDownHandler);
+  }
 
   function scrollToTop() {
     window.scrollTo({
@@ -175,7 +224,7 @@ function Displayer(props) {
 
   return (
     <div className="display-wrapper">
-      <div className="doc-wrapper">
+      <div id="doc-wrapper" className="doc-wrapper">
         <Document
           file={props.fName}
           onLoadSuccess={onDocumentLoadSuccess}
@@ -198,7 +247,7 @@ function Displayer(props) {
           disabled={pageNumber <= 1}
           onClick={previousPage}
           id="previous-btn"
-          style={{ opacity: buttonOpacity }}
+          
         >
           Previous
         </button>
@@ -207,7 +256,7 @@ function Displayer(props) {
           disabled={pageNumber >= numPages}
           onClick={nextPage}
           id="next-btn"
-          style={{ opacity: buttonOpacity }}
+          
         >
           Next
         </button>
@@ -215,7 +264,7 @@ function Displayer(props) {
           id="zoom"
           type="button"
           onClick={upScale}
-          style={{ opacity: buttonOpacity }}
+          
         >
           zoom
         </button>
@@ -223,7 +272,7 @@ function Displayer(props) {
           id="unzoom"
           type="button"
           onClick={downScale}
-          style={{ opacity: buttonOpacity }}
+          
         >
           unzoom
         </button>

@@ -11,6 +11,8 @@ function Home(props) {
         let piano;
         let container;
         let gContainer;
+        let sub;
+        let blackBg;
         //setting images--------------
         const bg = new Image();
         bg.onload = () => {
@@ -18,6 +20,8 @@ function Home(props) {
             piano = document.getElementById("pcl-piano-jpg");
             container = document.getElementById("pcl-background-container");
             gContainer = document.getElementById("pcl-background-container-global");
+            sub = document.getElementById("pcl-subtitle");
+            blackBg = document.getElementById("black-bg");
         }
         bg.src = concert;
         bg.id = "pcl-piano-jpg";
@@ -27,19 +31,23 @@ function Home(props) {
         let posScroll = window.scrollY;
         document.addEventListener('scroll', (e) => {
             posScroll = window.scrollY;
-            if (posScroll < 900) {
-                piano.style.opacity = 1 - (posScroll / 1000)
+            if (posScroll < 450) {
+                piano.style.opacity = 1 - (posScroll * 2 / 1000);
+                blackBg.style.opacity = 1 - (posScroll * 2 / 1000);
+                sub.style.color = `rgb(${255 - (posScroll * 2 / 3.6)}, ${255 - (posScroll * 2 / 3.6)}, ${255 - (posScroll * 2 / 3.6)})`;
             } else if (posScroll === 0) {
-                piano.style.opacity = 1
+                piano.style.opacity = 1;
+                blackBg.style.opacity = 1;
+                sub.style.color = "rgb(255, 255, 255)";
             }
-            container.scrollTop = posScroll * 0.46;
+            container.scrollTop = posScroll * 0.1;
             gContainer.scrollTop = posScroll * 1.5;
         });
 
         return () => {
             document.removeEventListener('scroll', (e) => {
                 posScroll = window.scrollY;
-                container.scrollTop = posScroll * 0.46;
+                container.scrollTop = posScroll * 0.1;
                 gContainer.scrollTop = posScroll * 1.5;
             });
         }
@@ -56,7 +64,14 @@ function Home(props) {
             <div className="pcl-content-wrapper">
 
                 <div id="pcl-background-container" className="pcl-background-container">
-                    <img src={concert} id="pcl-piano-jpg" width="1900px" />
+                    <img src={concert} id="pcl-piano-jpg" height="1020px"/>
+                    <div id="black-bg"></div>
+                    <svg id="svg-anim" width="1920" height="1080">
+            <circle cx="1000" cy="550" r="1000" stroke-width="2000" stroke="black" fill="transparent">
+            <animate attributeName="r" values="1000;1150;" dur="1s" repeatCount="" fill="freeze"/>
+                <animate attributeName="r" values="1150;2200;" begin="4s" dur="2s" repeatCount="" fill="freeze"/>
+                </circle>
+         </svg> 
                 </div>
                 <div className="pcl-header">
                     <CSSTransition
