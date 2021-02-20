@@ -85,51 +85,61 @@
     flex-direction: row;
 }
 
-#btn-container{
+#btn-container-left{
     position: absolute;
-    top: 0;
-    height: 100vh;
-    width: 100vw;
+    top: 15vh;
+    height: 70vh;
     pointer-events: none;
     z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 4.5vw;
+    left: 5vw;
+}
+
+#btn-container-right{
+    position: absolute;
+    top: 15vh;
+    right: 5vw;
+    height: 70vh;
+    width: 4.5vw;
+    pointer-events: none;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .doc-nav-button{
     background-color: white;
+    height: 8vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20%;
+    border: solid black 2px;
 }
 
-#previous-btn{
-    position: absolute;
-    top: 45vh;
-    left: 10vw;
-    pointer-events: all;
-  }
-  
-  #next-btn{
-    position: absolute;
-    top: 45vh;
-    right: 10vw;
-    pointer-events: all;
-  }
-  
-  #zoom{
-    position: absolute;
-    top: 50vh;
-    right: 10vw;
-    pointer-events: all;
-  }
-  
-  #unzoom{
-    position: absolute;
-    top: 50vh;
-    left: 10vw;
+.download-link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.download-button, #unzoom, #zoom, #next-btn, #previous-btn{
     pointer-events: all;
   }
   
   #page-counter{
     position: absolute;
-    bottom: 0;
-    left: 45%;
+    width: 100vw;
+    bottom: 1vh;
+    display: flex;
+    justify-content: center;
   }
 
 #center-bg{

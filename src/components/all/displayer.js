@@ -11,6 +11,12 @@ import {
 } from "react-router-dom";
 import { pdfjs } from 'react-pdf';
 import { Document, Page } from 'react-pdf';
+import zoom from "../../icons_pierreangot/add.png";
+import unzoom from "../../icons_pierreangot/minus.png";
+import previous from "../../icons_pierreangot/back.png";
+import next from "../../icons_pierreangot/next.png";
+import downloadIcon from "../../icons_pierreangot/file.png";
+
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 function Displayer(props) {
@@ -98,10 +104,14 @@ function Displayer(props) {
         setScale((prev) => prev - 0.2)
     }
 
+    function downLoadLink() {
+        document.getElementById("download-link").click();
+    }
+
 
     const pages = file.match(/a3/i) ?
         <Page pageNumber={pageNumber}
-            scale={1}
+            scale={scale}
             height={document.documentElement.clientHeight} />
         :
         <div className="double-pdf">
@@ -126,13 +136,19 @@ function Displayer(props) {
                     {pages}
                 </Document>
             </div>
-            <div id="btn-container"
+            <a
+                        id="download-link"
+                        className="download-link"
+                        download={file}
+                        href={file}
+                    ></a>
+            <p id="page-counter">
+                Page {pageNumber || (numPages ? 1 : '--')} of {numPages || '--'}
+            </p>
+            <div id="btn-container-left"
                 onMouseEnter={upButtonOpacity}
                 onMouseLeave={downButtonOpacity}
             >
-                <p id="page-counter">
-                    Page {pageNumber || (numPages ? 1 : '--')} of {numPages || '--'}
-                </p>
                 <button
                     className="doc-nav-button"
                     type="button"
@@ -141,8 +157,8 @@ function Displayer(props) {
                     id="previous-btn"
 
                 >
-                    Previous
-          </button>
+                    <img src={previous} />
+                </button>
                 <button
                     className="doc-nav-button"
                     type="button"
@@ -151,8 +167,8 @@ function Displayer(props) {
                     id="next-btn"
 
                 >
-                    Next
-          </button>
+                    <img src={next} />
+                </button>
                 <button
                     className="doc-nav-button"
                     id="zoom"
@@ -160,8 +176,8 @@ function Displayer(props) {
                     onClick={upScale}
 
                 >
-                    zoom
-          </button>
+                    <img src={zoom} />
+                </button>
                 <button
                     className="doc-nav-button"
                     id="unzoom"
@@ -169,8 +185,67 @@ function Displayer(props) {
                     onClick={downScale}
 
                 >
-                    unzoom
-          </button>
+                    <img src={unzoom} />
+                </button>
+                <button
+                    className="doc-nav-button download-button"
+                    type="button"
+                    onClick={downLoadLink}
+                >
+
+                    
+                        <img src={downloadIcon} />
+                </button>
+            </div>
+            <div id="btn-container-right"
+                onMouseEnter={upButtonOpacity}
+                onMouseLeave={downButtonOpacity}
+            >
+                <button
+                    className="doc-nav-button"
+                    type="button"
+                    disabled={pageNumber <= 1}
+                    onClick={previousPage}
+                    id="previous-btn"
+
+                >
+                    <img src={previous} />
+                </button>
+                <button
+                    className="doc-nav-button"
+                    type="button"
+                    disabled={pageNumber >= numPages}
+                    onClick={nextPage}
+                    id="next-btn"
+
+                >
+                    <img src={next} />
+                </button>
+                <button
+                    className="doc-nav-button"
+                    id="zoom"
+                    type="button"
+                    onClick={upScale}
+
+                >
+                    <img src={zoom} />
+                </button>
+                <button
+                    className="doc-nav-button"
+                    id="unzoom"
+                    type="button"
+                    onClick={downScale}
+
+                >
+                    <img src={unzoom} />
+                </button>
+                <button
+                    className="doc-nav-button download-button"
+                    type="button"
+                    onClick={downLoadLink}
+                >
+                        <img src={downloadIcon} />
+                </button>
             </div>
         </div>
     );
