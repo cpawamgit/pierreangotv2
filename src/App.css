@@ -133,6 +133,10 @@
 .download-button, #unzoom, #zoom, #next-btn, #previous-btn{
     pointer-events: all;
   }
+
+.download-button:focus{
+    outline: none;
+}
   
   #page-counter{
     position: absolute;
@@ -165,12 +169,15 @@ button{
     border-radius: 10%;
     opacity: 0.7;
     transition: opacity 0.3s ease-out, background-color 0.3s ease-out;
-    
 }
 
 .link:hover{
     opacity: 1;
     background-color: rgba(233, 233, 233, 0.932);
+}
+
+.link:focus{
+    outline: none;
 }
 
 .file-link{
@@ -196,6 +203,10 @@ button{
     border-bottom-right-radius: 10% 30%;
     background-color: rgb(252, 250, 246);
     transition: font-size 0.3s ease-out, background-color 0.3s ease-out;
+}
+
+.folder-btn:focus, .back-btn:focus, .file-btn:focus{
+    outline: none;
 }
 
 .file-btn::before{
