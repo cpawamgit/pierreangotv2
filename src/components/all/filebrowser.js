@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import datas from "../../site.json";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import previousFolder from "../../icons_pierreangot/folder.png";
 
 function FileBrowser() {
   return (
@@ -43,7 +44,7 @@ function Browse(params) {
     let tmp = url.split("/");
     tmp.pop();
     tmp = tmp.join("/");
-    backButton = <Link className="link" to={tmp}><button className="back-btn">Back</button></Link>
+    backButton = <Link className="link back-link" to={tmp}><button className="back-btn"><img src={previousFolder}/></button></Link>
   }
 
   try {
@@ -67,11 +68,11 @@ function Browse(params) {
       }
     });
     let buttonWrapper = <div className="btn-wrapper">
-      {backButton}
       {buttons}
     </div>
     return (
       <div className="app-wrapper">
+        {actualPath === url && backButton}
         {actualPath === url && buttonWrapper}
         <TransitionGroup>
           <CSSTransition

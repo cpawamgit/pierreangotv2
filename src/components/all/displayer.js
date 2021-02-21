@@ -16,6 +16,7 @@ import unzoom from "../../icons_pierreangot/minus.png";
 import previous from "../../icons_pierreangot/back.png";
 import next from "../../icons_pierreangot/next.png";
 import downloadIcon from "../../icons_pierreangot/file.png";
+import close from "../../icons_pierreangot/cancel.png";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -81,11 +82,30 @@ function Displayer(props) {
     }
 
     function previousPage() {
-        changePage(-1);
+        if (file.match(/a3/i)){
+            changePage(-1);
+        } else {
+            if (pageNumber - 2 >= 1){
+                changePage(-2);
+            } else {
+                changePage(-1);
+            }
+        }
     }
 
     function nextPage() {
-        changePage(1);
+        if (file.match(/a3/i)){
+            changePage(1);
+        } else {
+            if (pageNumber + 1 === numPages){
+                return;
+            } else if (pageNumber + 2 <= numPages - 1){
+                changePage(2);
+            } else {
+                changePage(1);
+            }
+        }
+        
     }
 
     function upButtonOpacity() {
@@ -118,9 +138,9 @@ function Displayer(props) {
             <Page pageNumber={pageNumber}
                 scale={scale}
                 height={document.documentElement.clientHeight} />
-            <Page pageNumber={pageNumber + 1}
+            {pageNumber + 1 <= numPages && <Page pageNumber={pageNumber + 1}
                 scale={scale}
-                height={document.documentElement.clientHeight} />
+                height={document.documentElement.clientHeight} />}
         </div>;
 
     return (
@@ -132,10 +152,15 @@ function Displayer(props) {
                     onMouseEnter={upButtonOpacity}
                     onMouseLeave={downButtonOpacity}
                     className="doc"
+                    error="Failure to load / Erreur de chargement"
+                    loading="Loading document / Chargement du document"
                 >
                     {pages}
                 </Document>
             </div>
+            <button id="close" onClick={() => window.history.back()}>
+                <img src={close} id="close-img" height="32px"/>
+            </button>
             <a
                         id="download-link"
                         className="download-link"
@@ -150,37 +175,30 @@ function Displayer(props) {
                 onMouseLeave={downButtonOpacity}
             >
                 <button
-                    className="doc-nav-button"
+                    className="doc-nav-button previous-btn"
                     type="button"
                     disabled={pageNumber <= 1}
                     onClick={previousPage}
-                    id="previous-btn"
-
                 >
                     <img src={previous} />
                 </button>
                 <button
-                    className="doc-nav-button"
+                    className="doc-nav-button next-btn"
                     type="button"
                     disabled={pageNumber >= numPages}
                     onClick={nextPage}
-                    id="next-btn"
-
                 >
                     <img src={next} />
                 </button>
                 <button
-                    className="doc-nav-button"
-                    id="zoom"
+                    className="doc-nav-button zoom"
                     type="button"
                     onClick={upScale}
-
                 >
                     <img src={zoom} />
                 </button>
                 <button
-                    className="doc-nav-button"
-                    id="unzoom"
+                    className="doc-nav-button unzoom"
                     type="button"
                     onClick={downScale}
 
@@ -202,28 +220,24 @@ function Displayer(props) {
                 onMouseLeave={downButtonOpacity}
             >
                 <button
-                    className="doc-nav-button"
+                    className="doc-nav-button previous-btn"
                     type="button"
                     disabled={pageNumber <= 1}
                     onClick={previousPage}
-                    id="previous-btn"
-
                 >
                     <img src={previous} />
                 </button>
                 <button
-                    className="doc-nav-button"
+                    className="doc-nav-button next-btn"
                     type="button"
                     disabled={pageNumber >= numPages}
                     onClick={nextPage}
-                    id="next-btn"
 
                 >
                     <img src={next} />
                 </button>
                 <button
-                    className="doc-nav-button"
-                    id="zoom"
+                    className="doc-nav-button zoom"
                     type="button"
                     onClick={upScale}
 
@@ -231,8 +245,7 @@ function Displayer(props) {
                     <img src={zoom} />
                 </button>
                 <button
-                    className="doc-nav-button"
-                    id="unzoom"
+                    className="doc-nav-button unzoom"
                     type="button"
                     onClick={downScale}
 

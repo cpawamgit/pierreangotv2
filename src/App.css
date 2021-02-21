@@ -30,6 +30,13 @@
 .home-main-wrapper{
 }
 
+.app-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .browse-wrapper{
     position: relative;
     width: 70vw;
@@ -44,7 +51,7 @@
     padding: 0;
     display: flex;
     flex-direction: row;
-    justify-content: left;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
@@ -76,6 +83,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    color: white;
 }
 
 .double-pdf{
@@ -124,14 +132,35 @@
     border: solid black 2px;
 }
 
+#close{
+    position: absolute;
+    top: 2vh;
+    right: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: white;
+    border-radius: 50%;
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+#close-img{
+    margin: 0;
+    padding: 0;
+}
+
 .download-link{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.download-button, #unzoom, #zoom, #next-btn, #previous-btn{
+.download-button, .unzoom, .zoom, .next-btn, .previous-btn{
     pointer-events: all;
+    outline: none;
   }
 
 .download-button:focus{
@@ -140,10 +169,11 @@
   
   #page-counter{
     position: absolute;
-    width: 100vw;
+    width: fit-content;
+    left: 47vw;
+    text-align: center;
     bottom: 1vh;
-    display: flex;
-    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.63);
   }
 
 #center-bg{
@@ -181,7 +211,7 @@ button{
 }
 
 .file-link{
-    margin: 2vh 2vw 2vh 2vw;
+    /* margin: 2vh 2vw 2vh 2vw; */
     border-bottom-right-radius: 10% 30%;
 }
 
@@ -193,6 +223,19 @@ button{
     border-left: 1px solid rgb(255, 255, 255);
     border-right: 1px solid rgb(97, 97, 97);
     border-bottom: 1px solid rgb(97, 97, 97);
+    text-transform: capitalize;
+}
+
+.back-link{
+    margin-bottom: 4vh;
+    background-color: transparent;
+}
+
+.back-btn{
+    width: fit-content;
+    height: fit-content;
+    background-color: rgb(226, 226, 226);
+
 }
 
 .file-btn{
@@ -201,6 +244,7 @@ button{
     width: 12vw;
     border: 1px solid black;
     border-bottom-right-radius: 10% 30%;
+    text-transform: capitalize;
     background-color: rgb(252, 250, 246);
     transition: font-size 0.3s ease-out, background-color 0.3s ease-out;
 }
