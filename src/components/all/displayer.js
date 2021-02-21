@@ -9,6 +9,7 @@ import {
     useLocation,
     useHistory
 } from "react-router-dom";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { pdfjs } from 'react-pdf';
 import { Document, Page } from 'react-pdf';
 import zoom from "../../icons_pierreangot/add.png";
@@ -145,6 +146,13 @@ function Displayer(props) {
 
     return (
         <div className="display-wrapper">
+            <CSSTransition
+            key={location.pathname}
+            classNames="doc-wrapper"
+            timeout={5000}
+            appear={true}
+            in={true}
+          >
             <div id="doc-wrapper" className="doc-wrapper">
                 <Document
                     file={file}
@@ -158,6 +166,7 @@ function Displayer(props) {
                     {pages}
                 </Document>
             </div>
+            </CSSTransition>
             <button id="close" onClick={() => window.history.back()}>
                 <img src={close} id="close-img" height="32px"/>
             </button>
