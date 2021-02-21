@@ -77,21 +77,6 @@
     overflow: hidden;
 }
 
-.doc-wrapper-appear{
-    transform: scaleX(0);
-    transform-origin: left;
-}
-
-.doc-wrapper-appear-active{
-    transition: transform 5s ease-out;
-    transform: scaleX(1);
-    
-}
-
-.doc-wrapper-appear-done{
-    transform: scaleX(1);
-}
-
 .doc{
     position: absolute;
     display: flex;

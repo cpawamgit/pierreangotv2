@@ -24,7 +24,6 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 function Displayer(props) {
     const [numPages, setNumPages] = useState(null);
     const [pageNumber, setPageNumber] = useState(1);
-    const [buttonOpacity, setButtonOpacity] = useState(0.2);
     const [scale, setScale] = useState(1);
     let location = useLocation();
     let query = new URLSearchParams(location.search);
@@ -83,10 +82,10 @@ function Displayer(props) {
     }
 
     function previousPage() {
-        if (file.match(/a3/i)){
+        if (file.match(/a3/i)) {
             changePage(-1);
         } else {
-            if (pageNumber - 2 >= 1){
+            if (pageNumber - 2 >= 1) {
                 changePage(-2);
             } else {
                 changePage(-1);
@@ -95,26 +94,18 @@ function Displayer(props) {
     }
 
     function nextPage() {
-        if (file.match(/a3/i)){
+        if (file.match(/a3/i)) {
             changePage(1);
         } else {
-            if (pageNumber + 1 === numPages){
+            if (pageNumber + 1 === numPages) {
                 return;
-            } else if (pageNumber + 2 <= numPages - 1){
+            } else if (pageNumber + 2 <= numPages - 1) {
                 changePage(2);
             } else {
                 changePage(1);
             }
         }
-        
-    }
 
-    function upButtonOpacity() {
-        setButtonOpacity(1);
-    }
-
-    function downButtonOpacity() {
-        setButtonOpacity(0.2);
     }
 
     function upScale() {
@@ -129,7 +120,6 @@ function Displayer(props) {
         document.getElementById("download-link").click();
     }
 
-
     const pages = file.match(/a3/i) ?
         <Page pageNumber={pageNumber}
             scale={scale}
@@ -139,50 +129,38 @@ function Displayer(props) {
             <Page pageNumber={pageNumber}
                 scale={scale}
                 height={document.documentElement.clientHeight} />
-            {pageNumber + 1 <= numPages && <Page pageNumber={pageNumber + 1}
-                scale={scale}
-                height={document.documentElement.clientHeight} />}
+            {pageNumber + 1 <= numPages &&
+                <Page pageNumber={pageNumber + 1}
+                    scale={scale}
+                    height={document.documentElement.clientHeight} />}
+
         </div>;
 
     return (
         <div className="display-wrapper">
-            <CSSTransition
-            key={location.pathname}
-            classNames="doc-wrapper"
-            timeout={5000}
-            appear={true}
-            in={true}
-          >
             <div id="doc-wrapper" className="doc-wrapper">
                 <Document
                     file={file}
                     onLoadSuccess={onDocumentLoadSuccess}
-                    onMouseEnter={upButtonOpacity}
-                    onMouseLeave={downButtonOpacity}
                     className="doc"
                     error="Failure to load / Erreur de chargement"
-                    loading="Loading document / Chargement du document"
-                >
-                    {pages}
+                    loading="Loading document / Chargement du document">
+                        {pages}
                 </Document>
             </div>
-            </CSSTransition>
             <button id="close" onClick={() => window.history.back()}>
-                <img src={close} id="close-img" height="32px"/>
+                <img src={close} id="close-img" height="32px" />
             </button>
             <a
-                        id="download-link"
-                        className="download-link"
-                        download={file}
-                        href={file}
-                    ></a>
+                id="download-link"
+                className="download-link"
+                download={file}
+                href={file}
+            ></a>
             <p id="page-counter">
                 Page {pageNumber || (numPages ? 1 : '--')} of {numPages || '--'}
             </p>
-            <div id="btn-container-left"
-                onMouseEnter={upButtonOpacity}
-                onMouseLeave={downButtonOpacity}
-            >
+            <div id="btn-container-left" >
                 <button
                     className="doc-nav-button previous-btn"
                     type="button"
@@ -220,14 +198,11 @@ function Displayer(props) {
                     onClick={downLoadLink}
                 >
 
-                    
-                        <img src={downloadIcon} />
+
+                    <img src={downloadIcon} />
                 </button>
             </div>
-            <div id="btn-container-right"
-                onMouseEnter={upButtonOpacity}
-                onMouseLeave={downButtonOpacity}
-            >
+            <div id="btn-container-right" >
                 <button
                     className="doc-nav-button previous-btn"
                     type="button"
@@ -266,7 +241,7 @@ function Displayer(props) {
                     type="button"
                     onClick={downLoadLink}
                 >
-                        <img src={downloadIcon} />
+                    <img src={downloadIcon} />
                 </button>
             </div>
         </div>
