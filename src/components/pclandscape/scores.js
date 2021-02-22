@@ -36,6 +36,7 @@ function Scores(props) {
     }, [])
     return isReady ? (
         <div>
+            <button id="language" onClick={props.toggleLanguage}><img src={props.language === "fr" ? "./union jack.png" : "./french flag.png"}/></button>
             <div id="pcl-background-container-global" className="pcl-background-container-global">
                     <img src="/sitebackground2.png" width="1920px"/>
                     <img src="/sitebackground2.png" width="1920px"/>

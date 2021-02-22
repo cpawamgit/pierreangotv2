@@ -26,10 +26,6 @@
   }
 
 /****************************************File Browser********************************************************/
-
-.home-main-wrapper{
-}
-
 .app-wrapper{
     display: flex;
     flex-direction: column;
@@ -568,6 +564,26 @@ a:focus {
     padding-right: 10vw;
 }
 
+.pcl-main-about{
+    margin-top: 10vh;
+    position: relative;
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+
+.score-btns{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 60vw;
+}
+
+#filler{
+    position: relative;
+    height: 50vh;
+}
+
 #pcl-subtitle-container{
     position: relative;
     height: 60vh;
@@ -641,6 +657,15 @@ a:focus {
     border-top-right-radius: 50% 30%;
 }
 
+.pcl-footer-about{
+    margin-top: 5vh;
+    min-height: 8vh;
+    color: white;
+    position: relative;
+    background-color: black;
+    border-top-right-radius: 50% 30%;
+}
+
 #pcl-footer-text{
     margin-left: 5vw;
     padding-top: 3vh;
@@ -648,6 +673,17 @@ a:focus {
 
 #pcl-footer-text > a:link, #pcl-footer-text > a:visited, #pcl-footer-text > a:hover, #pcl-footer-text > a:active{
     text-decoration: none;
+    color: white;
+}
+
+.tariffs-wrapper > p, ul > li{
+    color: white;
+    list-style: none;
+    font-size: calc(0.75vw + 1.5vh);
+    text-align: center;
+}
+
+.pcl-score-section{
     color: white;
 }
 

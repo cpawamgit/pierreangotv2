@@ -27,6 +27,9 @@ function PcLandscape(props) {
                 <Route path="/displayer">
                     <Displayer/>
                 </Route>
+                <Route path="/about">
+                    <About language={props.language} toggleLanguage={props.toggleLanguage}/>
+                </Route>
             </Switch>
         </Router>
     );
