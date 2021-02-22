@@ -10,9 +10,9 @@
 
 #language{
     position: absolute;
-    margin-top: -9vh;
-    margin-left: 10vw;
     border: none;
+    top: 2vh;
+    right: 10vw;
     animation-name: language-appear;
     animation-duration: 2s;
     animation-fill-mode: forwards;
@@ -199,10 +199,10 @@
   #page-counter{
     position: absolute;
     width: fit-content;
-    left: 47vw;
+    left: 5vw;
     text-align: center;
     bottom: 1vh;
-    background-color: rgba(255, 255, 255, 0.63);
+    color: white;
   }
 
 #center-bg{
@@ -509,7 +509,7 @@ button{
     justify-content: space-around;
     padding-bottom: 1.5vh;
     width: 45vw;
-    margin-left: 20vw;
+    margin-left: 15vw;
     font-size: calc(0.5vh + 1vw);
 }
 
@@ -573,7 +573,7 @@ a:focus {
     height: 60vh;
     margin-top: 8vh;
     margin-bottom: 7vh;
-    left: 20vw;
+    left: 18vw;
     width: fit-content;
 }
 
@@ -586,7 +586,7 @@ a:focus {
     text-align: right;
     /*text-decoration: underline 2px solid rgb(182, 39, 39);*/
     line-height: 0;
-
+    cursor: pointer;
 }
 
 #pcl-subtitle::before{

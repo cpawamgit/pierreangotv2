@@ -104,7 +104,7 @@ function Home(props) {
                             timeout={6000}
                             appear={true}
                         >
-                            <h2 id="pcl-subtitle">{language === "fr" ? "\"Ajouter et ne rien détruire\"" : "\"Add and do not destroy\""}</h2>
+                            <h2 id="pcl-subtitle" onClick={() => window.scrollTo({top: 440, behavior: "smooth"})}>{language === "fr" ? "\"Ajouter et ne rien détruire\"" : "\"Add and do not destroy\""}</h2>
                         </CSSTransition>
                     </div>
                     <p className="pcl-main-text">{language === "fr" ? "Pierre ANGOT est un compositeur français né en Normandie , le premier mars 1958." : "Pierre ANGOT is a French composer born in Normandy on March 1, 1958."}</p>
