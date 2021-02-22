@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import concert from "../../berlin.jpg";
 import tariffs from "../all/tariffs";
+import catalog from "../all/catalog";
 
 function Home(props) {
     let language = props.language;
@@ -94,18 +95,37 @@ function Home(props) {
                         </div>
                     </CSSTransition>
                     {!tariffsDisplay && !licenseDisplay && !catalogDisplay && <div id="filler" />}
-                    {tariffsDisplay &&
                         <CSSTransition
+                        mountOnEnter
+                        unmountOnExit
                             in={tariffsDisplay}
-                            appear={true}
                             timeout={500}
-                            classNames="about-text-anim"
+                            classNames="about-tariffs-anim"
                         >
                             {tariffs}
-                    </CSSTransition>
-                    }
-                    {licenseDisplay && <h2>liceeeeeense !!!!</h2>}
-                    {catalogDisplay && <h2>cataloooooooooooog !!!!</h2>}
+                    </CSSTransition>                    
+                            {props.language === "fr" ? 
+                            <CSSTransition
+                            mountOnEnter
+                            unmountOnExit
+                                in={catalogDisplay}
+                                timeout={500}
+                                classNames="about-text-anim"
+                            >
+                            {catalog.fr} 
+                            </CSSTransition>
+                            : 
+                            <CSSTransition
+                            mountOnEnter
+                            unmountOnExit
+                                in={catalogDisplay}
+                                timeout={500}
+                                classNames="about-text-anim"
+                            >
+                            {catalog.en}
+                            </CSSTransition>
+                            }
+                    
 
                 </div>
                 <div className="pcl-footer-about">

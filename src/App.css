@@ -62,10 +62,10 @@
 
 .doc-wrapper{
     margin: 0;
-    margin-left: 15vw;
+    margin-left: 15.5vw;
     padding: 0;
     height: 100vh;
-    width: 70vw;
+    width: 71vw;
     position: relative;
     flex-direction: row;
     align-items: center;
@@ -619,16 +619,55 @@ a:focus {
     background-color: rgba(47, 66, 77, 0.548);
 }
 
-.about-text-anim-appear{
+.about-tariffs-anim-appear{
     opacity: 0;
 }
 
-.about-text-anim-appear-active{
+.about-tariffs-anim-appear-active{
     opacity: 1;
     transition: opacity 0.5s ease-out;
 }
 
-.about-text-anim-appear-done{
+.about-tariffs-anim-appear-done{
+    opacity: 1;
+}
+
+.about-tariffs-anim-enter{
+    opacity: 0;
+}
+
+.about-tariffs-anim-enter-active{
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+}
+
+.about-tariffs-anim-enter-done{
+    opacity: 1;
+}
+
+.about-tariffs-anim-exit{
+    opacity: 1;
+}
+
+.about-tariffs-anim-exit-active{
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+
+.about-tariffs-anim-exit-done{
+    opacity: 0;
+}
+
+.about-text-anim-enter{
+    opacity: 0;
+}
+
+.about-text-anim-enter-active{
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+}
+
+.about-text-anim-enter-done{
     opacity: 1;
 }
 
