@@ -12,11 +12,11 @@ function Home(props) {
     const [licenseDisplay, setLicense] = useState(false);
 
     function setDisplay(params) {
-        if (params === "tariffs"){
+        if (params === "tariffs") {
             setCatalog(false);
             setLicense(false);
             setTarrifs(true);
-        } else if (params === "catalog"){
+        } else if (params === "catalog") {
             setCatalog(true);
             setLicense(false);
             setTarrifs(false);
@@ -60,7 +60,7 @@ function Home(props) {
 
     return isReady ? (
         <div className="home-main-wrapper">
-            <button id="language" onClick={props.toggleLanguage}><img src={props.language === "fr" ? "./union jack.png" : "./french flag.png"}/></button>
+            <button id="language" onClick={props.toggleLanguage}><img src={props.language === "fr" ? "./union jack.png" : "./french flag.png"} /></button>
             <div id="pcl-background-container-global" className="pcl-background-container-global">
                 <img src="sitebackground2.png" width="1920px" />
                 <img src="sitebackground2.png" width="1920px" />
@@ -68,12 +68,12 @@ function Home(props) {
             </div>
             <div className="pcl-content-wrapper">
 
-                <div id="pcl-background-container" style={{backgroundColor: "black"}} className="pcl-background-container">
-                    <img style={{opacity: "0.5"}} src={concert} id="pcl-piano-jpg" height="1020px"/>
+                <div id="pcl-background-container" style={{ backgroundColor: "black" }} className="pcl-background-container">
+                    <img style={{ opacity: "0.8" }} src={concert} id="pcl-piano-jpg" height="1020px" />
                     <div id="black-bg"></div>
                 </div>
                 <div className="pcl-header">
-                        <h1 id="pcl-main-title">{language === "fr" ? "Pierre Angot, Compositeur Français" : "Pierre Angot, French Composer"}</h1>
+                    <h1 id="pcl-main-title">{language === "fr" ? "Pierre Angot, Compositeur Français" : "Pierre Angot, French Composer"}</h1>
                     <ul className="pcl-nav">
                         <div className="pcl-nav-list-container"><li><Link id="home-btn" className="pcl-nav-list" to="/">{language === "fr" ? "accueil" : "home"}</Link></li></div>
                         <div className="pcl-nav-list-container"><li><Link className="pcl-nav-list" to="/scores/sitePdfs">{language === "fr" ? "explorer les partitions" : "browse the scores"}</Link></li></div>
@@ -81,14 +81,29 @@ function Home(props) {
                     </ul>
                 </div>
                 <div className="pcl-main-about">
-                    <div className="score-btns">
-                    <button onClick={() => setDisplay("tariffs")}><h2 className="pcl-score-section">{props.language === "fr" ? "Les tariffs" : "Tarrifs"}</h2></button>
-                    <button onClick={() => setDisplay("catalog")}><h2 className="pcl-score-section">{props.language === "fr" ? "Catalogue" : "Catalog"}</h2></button>
-                    <button onClick={() => setDisplay("license")}><h2 className="pcl-score-section">License</h2></button>
-                    
-                    </div>
-                    {!tariffsDisplay && !licenseDisplay && !catalogDisplay && <div id="filler"/>}
-                    {tariffsDisplay && tariffs}
+                    <CSSTransition
+                        in={true}
+                        appear={true}
+                        classNames="score-btns"
+                        timeout={500}
+                    >
+                        <div className="score-btns">
+                            <button onClick={() => setDisplay("tariffs")} className="score-display-btn"><h2 className="pcl-score-section">{props.language === "fr" ? "Les tariffs" : "Tarrifs"}</h2></button>
+                            <button onClick={() => setDisplay("catalog")} className="score-display-btn"><h2 className="pcl-score-section">{props.language === "fr" ? "Catalogue" : "Catalog"}</h2></button>
+                            <button onClick={() => setDisplay("license")} className="score-display-btn"><h2 className="pcl-score-section">License</h2></button>
+                        </div>
+                    </CSSTransition>
+                    {!tariffsDisplay && !licenseDisplay && !catalogDisplay && <div id="filler" />}
+                    {tariffsDisplay &&
+                        <CSSTransition
+                            in={tariffsDisplay}
+                            appear={true}
+                            timeout={500}
+                            classNames="about-text-anim"
+                        >
+                            {tariffs}
+                    </CSSTransition>
+                    }
                     {licenseDisplay && <h2>liceeeeeense !!!!</h2>}
                     {catalogDisplay && <h2>cataloooooooooooog !!!!</h2>}
 

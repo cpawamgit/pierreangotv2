@@ -575,13 +575,74 @@ a:focus {
     position: relative;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 60vw;
+    margin-bottom: 10vh;
+}
+
+.score-btns-appear{
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.score-btns-appear-active{
+    transform: scaleX(1);
+    transition: transform 0.5s ease-out;
+}
+
+.score-btns-appear-done{
+    transform: scaleX(1);
+}
+
+.score-display-btn{
+    border: solid 2px black;
+    background-color: rgba(47, 66, 77, 0.548);
+    outline: none;
+    transition: background-color 0.3s ease-out;
+}
+
+.score-display-btn:hover{
+    background-color: rgba(49, 49, 49, 0.699);
 }
 
 #filler{
     position: relative;
     height: 50vh;
+}
+
+.main-about-text{
+    width: 40vw;
+    margin-left: 10vw;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    border-radius: 25%;
+    background-color: rgba(47, 66, 77, 0.548);
+}
+
+.about-text-anim-appear{
+    opacity: 0;
+}
+
+.about-text-anim-appear-active{
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+}
+
+.about-text-anim-appear-done{
+    opacity: 1;
+}
+
+.about-text-anim-exit{
+    opacity: 1;
+}
+
+.about-text-anim-exit-active{
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+
+.about-text-anim-exit-done{
+    opacity: 0;
 }
 
 #pcl-subtitle-container{
