@@ -144,7 +144,9 @@ function Displayer(props) {
                     onLoadSuccess={onDocumentLoadSuccess}
                     className="doc"
                     error="Failure to load / Erreur de chargement"
-                    loading="Loading document / Chargement du document">
+                    loading={
+                            <h1 id="loading">Loading / Chargement</h1>
+                    }>
                         {pages}
                 </Document>
             </div>
