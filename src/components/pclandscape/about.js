@@ -4,6 +4,7 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 import concert from "../../berlin.jpg";
 import tariffs from "../all/tariffs";
 import catalog from "../all/catalog";
+import license from "../all/license";
 
 function Home(props) {
     let language = props.language;
@@ -11,21 +12,32 @@ function Home(props) {
     const [tariffsDisplay, setTarrifs] = useState(false);
     const [catalogDisplay, setCatalog] = useState(false);
     const [licenseDisplay, setLicense] = useState(false);
+    const [isEmpty, setIsEmpty] = useState(true);
 
     function setDisplay(params) {
-        if (params === "tariffs") {
-            setCatalog(false);
-            setLicense(false);
-            setTarrifs(true);
-        } else if (params === "catalog") {
-            setCatalog(true);
-            setLicense(false);
-            setTarrifs(false);
+        if (isEmpty) {
+            if (params === "tariffs") {
+                setTarrifs(true);
+            } else if (params === "catalog") {
+                setCatalog(true);
+            } else {
+                setLicense(true);
+            }
         } else {
             setCatalog(false);
-            setLicense(true);
-            setTarrifs(false)
+            setLicense(false);
+            setTarrifs(false);
+            setTimeout(() => {
+                if (params === "tariffs") {
+                    setTarrifs(true);
+                } else if (params === "catalog") {
+                    setCatalog(true);
+                } else {
+                    setLicense(true);
+                }
+            }, 510);
         }
+        setIsEmpty(false);
     }
 
     useEffect(() => {
@@ -94,38 +106,60 @@ function Home(props) {
                             <button onClick={() => setDisplay("license")} className="score-display-btn"><h2 className="pcl-score-section">License</h2></button>
                         </div>
                     </CSSTransition>
-                    {!tariffsDisplay && !licenseDisplay && !catalogDisplay && <div id="filler" />}
-                        <CSSTransition
+                    {isEmpty && <div id="filler" />}
+                    <CSSTransition
                         mountOnEnter
                         unmountOnExit
-                            in={tariffsDisplay}
+                        in={tariffsDisplay}
+                        timeout={500}
+                        classNames="about-tariffs-anim"
+                    >
+                        {tariffs}
+                    </CSSTransition>
+                    {props.language === "fr" ?
+                        <CSSTransition
+                            mountOnEnter
+                            unmountOnExit
+                            in={catalogDisplay}
                             timeout={500}
-                            classNames="about-tariffs-anim"
+                            classNames="about-text-anim"
                         >
-                            {tariffs}
-                    </CSSTransition>                    
-                            {props.language === "fr" ? 
-                            <CSSTransition
+                            {catalog.fr}
+                        </CSSTransition>
+                        :
+                        <CSSTransition
                             mountOnEnter
                             unmountOnExit
-                                in={catalogDisplay}
-                                timeout={500}
-                                classNames="about-text-anim"
-                            >
-                            {catalog.fr} 
-                            </CSSTransition>
-                            : 
-                            <CSSTransition
-                            mountOnEnter
-                            unmountOnExit
-                                in={catalogDisplay}
-                                timeout={500}
-                                classNames="about-text-anim"
-                            >
+                            in={catalogDisplay}
+                            timeout={500}
+                            classNames="about-text-anim"
+                        >
                             {catalog.en}
-                            </CSSTransition>
-                            }
+                        </CSSTransition>
+                    }
+                    {props.language === "fr" ?
+                        <CSSTransition
+                            mountOnEnter
+                            unmountOnExit
+                            in={licenseDisplay}
+                            timeout={500}
+                            classNames="about-text-anim"
+                        >
+                            {license.fr}
+                        </CSSTransition>
+                        :
+                        <CSSTransition
+                            mountOnEnter
+                            unmountOnExit
+                            in={licenseDisplay}
+                            timeout={500}
+                            classNames="about-text-anim"
+                        >
+                            {license.en}
+                        </CSSTransition>
+                    }
                     
+
 
                 </div>
                 <div className="pcl-footer-about">

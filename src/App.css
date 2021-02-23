@@ -616,7 +616,7 @@ a:focus {
     padding-top: 5vh;
     padding-bottom: 5vh;
     border-radius: 25%;
-    background-color: rgba(47, 66, 77, 0.548);
+    background-color: rgba(47, 66, 77, 0.767);
 }
 
 .about-tariffs-anim-appear{
@@ -779,8 +779,20 @@ a:focus {
 .tariffs-wrapper > p, ul > li{
     color: white;
     list-style: none;
-    font-size: calc(0.75vw + 1.5vh);
+    font-size: calc(0.5vw + 1vh);
     text-align: center;
+}
+
+.catalog > p, .license > p{
+    color: white;
+    font-size: calc(0.625vw + 1.25vh);
+    text-align: center;
+}
+
+.license > p{
+    margin-left: 3vw;
+    margin-right: 3vw;
+    font-size: calc(0.5vw + 1vh);
 }
 
 .pcl-score-section{

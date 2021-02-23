@@ -31,14 +31,18 @@ function Home(props) {
         let posScroll = window.scrollY;
         document.addEventListener('scroll', (e) => {
             posScroll = window.scrollY;
-            if (posScroll < 450) {
-                piano.style.opacity = 1 - (posScroll * 2 / 1000);
-                blackBg.style.opacity = 1 - (posScroll * 2 / 1000);
-                sub.style.color = `rgb(${255 - (posScroll * 2 / 3.6)}, ${255 - (posScroll * 2 / 3.6)}, ${255 - (posScroll * 2 / 3.6)})`;
-            } else if (posScroll === 0) {
+            if (posScroll === 0) {
                 piano.style.opacity = 1;
                 blackBg.style.opacity = 1;
                 sub.style.color = "rgb(255, 255, 255)";
+            } else if (posScroll < 450) {
+                piano.style.opacity = 1 - (posScroll * 2 / 1000);
+                blackBg.style.opacity = 1 - (posScroll * 2 / 1000);
+                sub.style.color = `rgb(${255 - (posScroll * 2 / 3.6)}, ${255 - (posScroll * 2 / 3.6)}, ${255 - (posScroll * 2 / 3.6)})`;
+            } else {
+                piano.style.opacity = 0.1;
+                blackBg.style.opacity = 0.1;
+                sub.style.color = "rgb(6, 6, 6)";
             }
             container.scrollTop = posScroll * 0.1;
             gContainer.scrollTop = posScroll * 1.5;
