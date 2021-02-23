@@ -49,9 +49,9 @@ const tariffs =
 </ul>
 <p>Opus 16 : </p>
 <ul>
-<li style={{textShadow: "none"}} >version 2000 250€</li>
-<li style={{textShadow: "none"}} >version trio 300€</li>
-<li style={{textShadow: "none"}} >version 2010 250€</li>
+<li style={{textShadow: "none"}} >version 2000 : 250€</li>
+<li style={{textShadow: "none"}} >version trio : 300€</li>
+<li style={{textShadow: "none"}} >version 2010 : 250€</li>
 </ul>
 <p>Opus 17 : Astarte ou Ishtar : 80€</p>
 <p>Opus 18 : Brocéliande version 2001 ou 2006 : 280€</p>

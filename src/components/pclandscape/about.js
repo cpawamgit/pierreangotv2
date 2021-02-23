@@ -12,6 +12,8 @@ function Home(props) {
     const [tariffsDisplay, setTarrifs] = useState(false);
     const [catalogDisplay, setCatalog] = useState(false);
     const [licenseDisplay, setLicense] = useState(false);
+    const [contactDisplay, setContact] = useState(false);
+
     const [isEmpty, setIsEmpty] = useState(true);
 
     function setDisplay(params) {
@@ -20,20 +22,25 @@ function Home(props) {
                 setTarrifs(true);
             } else if (params === "catalog") {
                 setCatalog(true);
-            } else {
+            } else if (params === "license"){
                 setLicense(true);
+            } else {
+                setContact(true);
             }
         } else {
             setCatalog(false);
             setLicense(false);
             setTarrifs(false);
+            setContact(false);
             setTimeout(() => {
                 if (params === "tariffs") {
                     setTarrifs(true);
                 } else if (params === "catalog") {
                     setCatalog(true);
-                } else {
+                } else if (params === "license"){
                     setLicense(true);
+                } else {
+                    setContact(true);
                 }
             }, 499);
         }
@@ -101,9 +108,11 @@ function Home(props) {
                         timeout={500}
                     >
                         <div className="score-btns">
-                            <button onClick={() => setDisplay("tariffs")} className="score-display-btn"><h2 className="pcl-score-section">{props.language === "fr" ? "Les tariffs" : "Tarrifs"}</h2></button>
+                            <button onClick={() => setDisplay("tariffs")} className="score-display-btn"><h2 className="pcl-score-section">{props.language === "fr" ? "Les Tarifs" : "Tarrifs"}</h2></button>
                             <button onClick={() => setDisplay("catalog")} className="score-display-btn"><h2 className="pcl-score-section">{props.language === "fr" ? "Catalogue" : "Catalog"}</h2></button>
-                            <button onClick={() => setDisplay("license")} className="score-display-btn"><h2 className="pcl-score-section">License</h2></button>
+                            <button onClick={() => setDisplay("license")} className="score-display-btn"><h2 className="pcl-score-section">{props.language === "fr" ? "Licence" : "License"}</h2></button>
+                            <button onClick={() => setDisplay("contact")} className="score-display-btn"><h2 className="pcl-score-section">Contact</h2></button>
+
                         </div>
                     </CSSTransition>
                     {isEmpty && <div id="filler" />}
@@ -158,8 +167,19 @@ function Home(props) {
                             {license.en}
                         </CSSTransition>
                     }
-                    
-
+                    <CSSTransition
+                        mountOnEnter
+                        unmountOnExit
+                        in={contactDisplay}
+                        timeout={500}
+                        classNames="about-tariffs-anim"
+                    >
+                        <div className="contact main-about-text">
+                            <p>E-Mail : <a href="mailto:cyril.morin.tai@gmail.com" rel="noreferrer">cyril.morin.tai@gmail.com</a></p>
+                            <p>Tel : 0033 6 63 59 28 28 / 0036 70 63 74 839</p>
+                            <p>{language === "fr" ? "Le contact donné à la fin des partitions n'est plus valide, veuillez vous référer à cette section" : "The contact given at the end of the partitions is no longer valid, please refer to this section"}</p>
+                        </div>
+                    </CSSTransition>
 
                 </div>
                 <div className="pcl-footer-about">

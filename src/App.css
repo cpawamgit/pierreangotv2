@@ -16,7 +16,7 @@
     animation-name: language-appear;
     animation-duration: 2s;
     animation-fill-mode: forwards;
-    animation-delay: 6s;
+    animation-delay: 2s;
     opacity: 0;
 }
 
@@ -783,7 +783,7 @@ a:focus {
     text-align: center;
 }
 
-.catalog > p, .license > p{
+.catalog > p, .license > p, .contact > p{
     color: white;
     font-size: calc(0.625vw + 1.25vh);
     text-align: center;
@@ -795,6 +795,21 @@ a:focus {
     font-size: calc(0.5vw + 1vh);
 }
 
+.contact > p > a:link{
+    text-decoration: none;
+    color: white;
+}
+
+.contact{
+    margin-top: 12vh;
+    margin-bottom: 12vh;
+}
+
+.contact > p {
+    margin-left: 3vw;
+    margin-right: 3vw;
+}
+
 .pcl-score-section{
     color: white;
 }
@@ -803,7 +818,209 @@ a:focus {
 /*------------------------------------------------------------------------------------------------------------
 ----------------------------------------Pc Portrait-(pcp)-----------------------------------------------------
 ------------------------------------------------------------------------------------------------------------*/
+.pcp-content-wrapper {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    position: relative;
+    font-family: 'Courgette', cursive;
+}
 
+.pcp-background-container-global{
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 120vw;
+    overflow: hidden;
+    position: fixed;
+    z-index: -2;
+    background-color: rgb(255, 255, 255);
+    display: none;
+}
+
+.pcp-background-container {
+    top: 0;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: fixed;
+    z-index: -1;
+    box-sizing: border-box;
+    background-color: white;
+    border-right: 2px solid black;
+    border-left: 2px solid black;
+    display: flex;
+    justify-content: center;
+}
+
+#pcp-piano-jpg{
+    position: absolute;
+}
+
+.pcp-header {
+    position: relative;
+    margin: 0;
+    background-color: transparent;
+    text-align: center;
+    border-bottom-left-radius: 50% 30%;
+    margin-top: 5vh;
+}
+
+.pcp-header-scores{
+    position: relative;
+    margin: 0;
+    background-color: transparent;
+    text-align: center;
+    border-bottom-left-radius: 50% 30%;
+    margin-top: 5vh;
+}
+
+.pcp-header > h1, ul, li, .pcp-header-scores > h1, ul, li{
+    color: white;
+    text-shadow: 1px 3px 3px black;
+}
+
+.pcp-nav{
+    position: relative;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-bottom: 1.5vh;
+    width: 70vw;
+    margin-left: 12vw;
+    font-size: calc(0.5vh + 1vw);
+}
+
+.pcp-nav-list{
+    color: white;
+    text-decoration: none;
+    text-shadow: 2px 2px 6px black;
+}
+
+.pcp-nav-list-container{
+    position: relative;
+}
+
+.pcp-nav-list-container::before{
+    content: '';
+    position: absolute;
+    background-color: rgb(182, 39, 39);
+    left: 5%;
+    bottom: -2px;
+    height: 2px;
+    width: 90%;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-out;
+}
+
+.pcp-nav-list-container:hover::before{    
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+#pcp-main-title {
+    position: relative;
+    margin: 0;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    font-size: calc(2vw + 1vh);
+}
+
+.pcp-h2 {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.pcp-main{
+    position: relative;
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+
+.pcp-main-about{
+    margin-top: 10vh;
+    position: relative;
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+
+
+#pcp-subtitle-container{
+    position: relative;
+    height: 33vh;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+    left: 24vw;
+    width: fit-content;
+}
+
+#pcp-subtitle{
+    position: sticky;
+    font-size: calc(1.5vw + 0.75vh);
+    top: 13vh;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+    line-height: 0;
+    cursor: pointer;
+}
+
+#pcp-subtitle::before{
+    content: '';
+    position: absolute;
+    left: 5%;
+    width: 90%;
+    height: 2px;
+    bottom: -20px;
+    background-color: rgb(182, 39, 39);
+}
+
+.pcp-main-text{
+    position: relative;
+    font-size: calc(0.5vh + 1vw);
+    line-height: 3vh;
+    margin-top: 1.5vh;
+    margin-bottom: 4vh;
+    text-shadow: 1px 1px 0px white;
+}
+
+.pcp-footer{
+    margin-top: 2.5vh;
+    min-height: 4vh;
+    color: white;
+    position: relative;
+    background-color: black;
+    border-top-right-radius: 50% 30%;
+}
+
+.pcp-footer-about{
+    margin-top: 2.5vh;
+    min-height: 4vh;
+    color: white;
+    position: relative;
+    background-color: black;
+    border-top-right-radius: 50% 30%;
+}
+
+#pcp-footer-text{
+    margin-left: 5vw;
+    padding-top: 1.5vh;
+}
+
+#pcp-footer-text > a:link, #pcp-footer-text > a:visited, #pcp-footer-text > a:hover, #pcp-footer-text > a:active{
+    text-decoration: none;
+    color: white;
+}
+
+.pcp-score-section{
+    color: white;
+}
 
 
 /*------------------------------------------------------------------------------------------------------------
