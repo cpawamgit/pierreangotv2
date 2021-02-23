@@ -35,7 +35,7 @@ function Home(props) {
                 } else {
                     setLicense(true);
                 }
-            }, 510);
+            }, 499);
         }
         setIsEmpty(false);
     }
