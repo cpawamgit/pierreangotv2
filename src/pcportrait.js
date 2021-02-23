@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-    BrowserRouter as Router,
+    HashRouter as Router,
     Switch,
     Route,
     Link,
@@ -26,7 +26,7 @@ function PcPortait(props) {
                     <Scores language={props.language} toggleLanguage={props.toggleLanguage}/>
                 </Route>
                 <Route path="/displayer">
-                    <Displayer/>
+                    <Displayer format="pcp-"/>
                 </Route>
                 <Route path="/about">
                     <About language={props.language} toggleLanguage={props.toggleLanguage}/>

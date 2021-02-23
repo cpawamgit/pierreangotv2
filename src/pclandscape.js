@@ -25,7 +25,7 @@ function PcLandscape(props) {
                     <Scores language={props.language} toggleLanguage={props.toggleLanguage}/>
                 </Route>
                 <Route path="/displayer">
-                    <Displayer/>
+                    <Displayer format=""/>
                 </Route>
                 <Route path="/about">
                     <About language={props.language} toggleLanguage={props.toggleLanguage}/>

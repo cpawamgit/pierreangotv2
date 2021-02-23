@@ -55,7 +55,7 @@ function Scores(props) {
                         <div className="pcp-nav-list-container"><li><Link className="pcp-nav-list link-bg" to="/about">{language === "fr" ? "Tarifs, catalogue, licence et contact" : "Tariffs, catalog, license and contact"}</Link></li></div>
                     </ul>
                 </div>
-                <FileBrowser />
+                <FileBrowser format="pcp-"/>
                 <div className="pcp-footer">
                     <p id="pcp-footer-text">Designed by <a id="pcp-footer-link" href="http://www.cyrilmorin.fr" rel="noreferrer" target="_blank">Cyril Morin</a>, contact: <a href="mailto:cyril.morin.tai@gmail.com" rel="noreferrer">cyril.morin.tai@gmail.com</a></p>
                 </div>

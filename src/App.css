@@ -56,6 +56,14 @@
     min-height: 100vh;
 }
 
+.pcp-browse-wrapper{
+    position: relative;
+    width: 90vw;
+    margin-left: 5vw;
+    margin-top: 2.5vh;
+    min-height: 100vh;
+}
+
 .btn-wrapper{
     position: relative;
     margin: 0;
@@ -266,12 +274,23 @@ button{
     text-transform: capitalize;
 }
 
+.pcp-folder-btn, .pcp-back-btn{
+    height: 10vh;
+    width: 16vw;
+    border: none;
+    border-top: 1px solid rgb(255, 255, 255);
+    border-left: 1px solid rgb(255, 255, 255);
+    border-right: 1px solid rgb(97, 97, 97);
+    border-bottom: 1px solid rgb(97, 97, 97);
+    text-transform: capitalize;
+}
+
 .back-link{
     margin-bottom: 4vh;
     background-color: transparent;
 }
 
-.back-btn{
+.back-btn, .pcp-back-btn{
     width: fit-content;
     height: fit-content;
     background-color: rgb(226, 226, 226);
@@ -289,11 +308,22 @@ button{
     transition: font-size 0.3s ease-out, background-color 0.3s ease-out;
 }
 
-.folder-btn:focus, .back-btn:focus, .file-btn:focus{
+.pcp-file-btn{
+    position: relative;
+    height: 15vh;
+    width: 20vw;
+    border: 1px solid black;
+    border-bottom-right-radius: 10% 30%;
+    text-transform: capitalize;
+    background-color: rgb(252, 250, 246);
+    transition: font-size 0.3s ease-out, background-color 0.3s ease-out;
+}
+
+.folder-btn:focus, .pcp-folder-btn:focus, .back-btn:focus, .pcp-back-btn:focus, .file-btn:focus, .pcp-file-btn:focus{
     outline: none;
 }
 
-.file-btn::before{
+.file-btn::before, .pcp-file-btn::before{
     content: '';
     position: absolute;
     height: 80%;

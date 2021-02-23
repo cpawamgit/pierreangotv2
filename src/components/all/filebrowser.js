@@ -13,17 +13,18 @@ import datas from "../../site.json";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import previousFolder from "../../icons_pierreangot/folder.png";
 
-function FileBrowser() {
+function FileBrowser(props) {
+  console.log(props.format)
   return (
-    <div className="browse-wrapper">
-      <Browse />
+    <div className={`${props.format}browse-wrapper`}>
+      <Browse format={props.format}/>
     </div>
   );
 }
 
 
 
-function Browse(params) {
+function Browse(props) {
   let location = useLocation();
   let history = useHistory();
   let { url } = useRouteMatch();
@@ -33,6 +34,7 @@ function Browse(params) {
   dirPath = dirPath.slice(2);
   let backButton = null;
   let buttonClass = null;
+  console.log(`props formt in browse : ${props.format}`)
 
   function scrollToTop() {
     window.scrollTo({
@@ -44,7 +46,7 @@ function Browse(params) {
     let tmp = url.split("/");
     tmp.pop();
     tmp = tmp.join("/");
-    backButton = <Link className="link back-link" to={tmp}><button className="back-btn"><img src={previousFolder}/></button></Link>
+    backButton = <Link className="link back-link" to={tmp}><button className={`${props.format}back-btn`}><img src={previousFolder}/></button></Link>
   }
 
   try {
@@ -59,11 +61,11 @@ function Browse(params) {
     let buttons = jsonPath.map(item => {
       if (item.type === "dir") {
         return (
-          <Link onClick={scrollToTop} className="link folder-link" key={`${item.name}`} to={`${url}/${item.name}`}><button className="folder-btn">{item.name}</button></Link>
+          <Link onClick={scrollToTop} className="link folder-link" key={`${item.name}`} to={`${url}/${item.name}`}><button className={`${props.format}folder-btn`}>{item.name}</button></Link>
         );
       } else {
         return (
-          <Link onClick={scrollToTop} className="link file-link" key={`${item.name}`} to={`/displayer?file=/${dirPath.join("/")}/${item.name}`}><button className="file-btn">{item.name}</button></Link>
+          <Link onClick={scrollToTop} className="link file-link" key={`${item.name}`} to={`/displayer?file=/${dirPath.join("/")}/${item.name}`}><button className={`${props.format}file-btn`}>{item.name}</button></Link>
         );
       }
     });
@@ -82,7 +84,7 @@ function Browse(params) {
             appear={true}
           >
             <Switch location={location}>
-              <Route path={`${url}/:id`} children={<Browse />} />
+              <Route path={`${url}/:id`} children={<Browse format={props.format}/>} />
             </Switch>
           </CSSTransition>
         </TransitionGroup>
