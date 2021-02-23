@@ -12,13 +12,24 @@ import {
 import Home from "./components/pcportrait/home";
 import About from "./components/pcportrait/about";
 import Scores from "./components/pcportrait/scores";
+import Displayer from "./components/all/displayer";
 
-function PcPortait() {
+
+function PcPortait(props) {
     return (
         <Router>
             <Switch>
                 <Route exact path="/">
-                    <Home />
+                    <Home language={props.language} toggleLanguage={props.toggleLanguage}/>
+                </Route>
+                <Route path="/scores">
+                    <Scores language={props.language} toggleLanguage={props.toggleLanguage}/>
+                </Route>
+                <Route path="/displayer">
+                    <Displayer/>
+                </Route>
+                <Route path="/about">
+                    <About language={props.language} toggleLanguage={props.toggleLanguage}/>
                 </Route>
             </Switch>
         </Router>

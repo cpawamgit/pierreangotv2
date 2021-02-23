@@ -20,6 +20,21 @@
     opacity: 0;
 }
 
+#pcp-language{
+    position: absolute;
+    border: none;
+    margin: 0;
+    top: 1vh;
+    right: 1vw;
+    animation-name: language-appear;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+    opacity: 0;
+}
+
+
+
 @keyframes language-appear{
     from{opacity: 0;}
     to{opacity: 1;}
