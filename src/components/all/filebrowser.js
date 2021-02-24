@@ -34,7 +34,6 @@ function Browse(props) {
   dirPath = dirPath.slice(2);
   let backButton = null;
   let buttonClass = null;
-  console.log(`props formt in browse : ${props.format}`)
 
   function scrollToTop() {
     window.scrollTo({

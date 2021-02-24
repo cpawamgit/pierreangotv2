@@ -32,7 +32,7 @@ function Displayer(props) {
     let pos;
 
     useEffect(() => {
-        ele = document.getElementById("doc-wrapper");
+        ele = document.getElementById(`${props.format}doc-wrapper`);
         ele.style.cursor = 'grab';
         ele.addEventListener("mousedown", activateDrag);
         return () => { ele.removeEventListener("mousedown", activateDrag) };
@@ -82,30 +82,46 @@ function Displayer(props) {
     }
 
     function previousPage() {
-        if (file.match(/a3/i)) {
-            changePage(-1);
-        } else {
-            if (pageNumber - 2 >= 1) {
-                changePage(-2);
-            } else {
+        if (props.format === ""){
+            if (file.match(/a3/i)) {
                 changePage(-1);
+            } else {
+                if (pageNumber - 2 >= 1) {
+                    changePage(-2);
+                } else {
+                    changePage(-1);
+                }
+            }
+        } else {
+            if (pageNumber - 1 >= 0){
+                changePage(-1);
+            } else {
+                return;
             }
         }
+        
     }
 
     function nextPage() {
-        if (file.match(/a3/i)) {
-            changePage(1);
-        } else {
-            if (pageNumber + 1 === numPages) {
-                return;
-            } else if (pageNumber + 2 <= numPages - 1) {
-                changePage(2);
-            } else {
+        if (props.format === ""){
+            if (file.match(/a3/i)) {
                 changePage(1);
+            } else {
+                if (pageNumber + 1 === numPages) {
+                    return;
+                } else if (pageNumber + 2 <= numPages - 1) {
+                    changePage(2);
+                } else {
+                    changePage(1);
+                }
+            }
+        } else {
+            if (pageNumber + 1 <= numPages){
+                changePage(1);
+            } else {
+                return;
             }
         }
-
     }
 
     function upScale() {
@@ -121,11 +137,17 @@ function Displayer(props) {
     }
 
     const pages = file.match(/a3/i) ?
-        <Page pageNumber={pageNumber}
-            scale={scale}
-            height={document.documentElement.clientHeight} />
+        props.format === "" ?
+            <Page pageNumber={pageNumber}
+                scale={scale}
+                height={document.documentElement.clientHeight} />
+            :
+            <Page pageNumber={pageNumber}
+                scale={scale}
+                width={document.documentElement.clientWidth} />
         :
-        <div className="double-pdf">
+        props.format === "" ?
+        <div className={`${props.format}double-pdf`}>
             <Page pageNumber={pageNumber}
                 scale={scale}
                 height={document.documentElement.clientHeight} />
@@ -133,24 +155,29 @@ function Displayer(props) {
                 <Page pageNumber={pageNumber + 1}
                     scale={scale}
                     height={document.documentElement.clientHeight} />}
-
-        </div>;
+        </div>
+        :
+        <div className={`${props.format}double-pdf`}>
+            <Page pageNumber={pageNumber}
+                scale={scale}
+                width={document.documentElement.clientWidth} />
+        </div>
 
     return (
         <div className="display-wrapper">
-            <div id="doc-wrapper" className="doc-wrapper">
+            <div id={`${props.format}doc-wrapper`} className={`${props.format}doc-wrapper`}>
                 <Document
                     file={file}
                     onLoadSuccess={onDocumentLoadSuccess}
                     className="doc"
                     error="Failure to load / Erreur de chargement"
                     loading={
-                            <h1 id="loading">Loading / Chargement</h1>
+                        <h1 id="loading">Loading / Chargement</h1>
                     }>
-                        {pages}
+                    {pages}
                 </Document>
             </div>
-            <button id="close" onClick={() => window.history.back()}>
+            <button id={`${props.format}close`} onClick={() => window.history.back()}>
                 <img src={close} id="close-img" height="32px" />
             </button>
             <a
@@ -162,9 +189,9 @@ function Displayer(props) {
             <p id="page-counter">
                 Page {pageNumber || (numPages ? 1 : '--')} of {numPages || '--'}
             </p>
-            <div id="btn-container-left" >
+            <div id={`${props.format}btn-container-left`} >
                 <button
-                    className="doc-nav-button previous-btn"
+                    className={`${props.format}doc-nav-button previous-btn`} 
                     type="button"
                     disabled={pageNumber <= 1}
                     onClick={previousPage}
@@ -172,7 +199,7 @@ function Displayer(props) {
                     <img src={previous} />
                 </button>
                 <button
-                    className="doc-nav-button next-btn"
+                    className={`${props.format}doc-nav-button next-btn`} 
                     type="button"
                     disabled={pageNumber >= numPages}
                     onClick={nextPage}
@@ -180,14 +207,14 @@ function Displayer(props) {
                     <img src={next} />
                 </button>
                 <button
-                    className="doc-nav-button zoom"
+                    className={`${props.format}doc-nav-button zoom`} 
                     type="button"
                     onClick={upScale}
                 >
                     <img src={zoom} />
                 </button>
                 <button
-                    className="doc-nav-button unzoom"
+                    className={`${props.format}doc-nav-button unzoom`} 
                     type="button"
                     onClick={downScale}
 
@@ -195,7 +222,7 @@ function Displayer(props) {
                     <img src={unzoom} />
                 </button>
                 <button
-                    className="doc-nav-button download-button"
+                    className={`${props.format}doc-nav-button download-button`} 
                     type="button"
                     onClick={downLoadLink}
                 >
@@ -204,9 +231,9 @@ function Displayer(props) {
                     <img src={downloadIcon} />
                 </button>
             </div>
-            <div id="btn-container-right" >
+            <div id={`${props.format}btn-container-right`} >
                 <button
-                    className="doc-nav-button previous-btn"
+                    className={`${props.format}doc-nav-button previous-btn`} 
                     type="button"
                     disabled={pageNumber <= 1}
                     onClick={previousPage}
@@ -214,7 +241,7 @@ function Displayer(props) {
                     <img src={previous} />
                 </button>
                 <button
-                    className="doc-nav-button next-btn"
+                    className={`${props.format}doc-nav-button next-btn`} 
                     type="button"
                     disabled={pageNumber >= numPages}
                     onClick={nextPage}
@@ -223,7 +250,7 @@ function Displayer(props) {
                     <img src={next} />
                 </button>
                 <button
-                    className="doc-nav-button zoom"
+                    className={`${props.format}doc-nav-button zoom`} 
                     type="button"
                     onClick={upScale}
 
@@ -231,7 +258,7 @@ function Displayer(props) {
                     <img src={zoom} />
                 </button>
                 <button
-                    className="doc-nav-button unzoom"
+                    className={`${props.format}doc-nav-button unzoom`} 
                     type="button"
                     onClick={downScale}
 
@@ -239,7 +266,7 @@ function Displayer(props) {
                     <img src={unzoom} />
                 </button>
                 <button
-                    className="doc-nav-button download-button"
+                    className={`${props.format}doc-nav-button download-button`} 
                     type="button"
                     onClick={downLoadLink}
                 >
