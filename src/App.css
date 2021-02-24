@@ -698,6 +698,16 @@ a:focus {
     margin-bottom: 10vh;
 }
 
+.pcp-score-btns{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90vw;
+    margin-left: 5vw;
+    margin-bottom: 5vh;
+}
+
 .score-btns-appear{
     transform: scaleX(0);
     transform-origin: left;
@@ -728,8 +738,23 @@ a:focus {
     height: 50vh;
 }
 
+#pcp-filler{
+    position: relative;
+    height: 70vh;
+}
+
 .main-about-text{
     width: 40vw;
+    margin-left: 10vw;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    border-radius: 25%;
+    background-color: rgba(47, 66, 77, 0.767);
+}
+
+.pcp-main-about-text{
+    width: 80vw;
+    height: fit-content;
     margin-left: 10vw;
     padding-top: 5vh;
     padding-bottom: 5vh;
@@ -894,6 +919,25 @@ a:focus {
     color: white;
 }
 
+.pcp-footer-about{
+    margin-top: 5vh;
+    min-height: 8vh;
+    color: white;
+    position: relative;
+    background-color: black;
+    border-top-right-radius: 50% 30%;
+}
+
+#pcp-footer-text{
+    margin-left: 5vw;
+    padding-top: 3vh;
+}
+
+#pcp-footer-text > a:link, #pcp-footer-text > a:visited, #pcp-footer-text > a:hover, #pcp-footer-text > a:active{
+    text-decoration: none;
+    color: white;
+}
+
 .tariffs-wrapper > p, ul > li{
     color: white;
     list-style: none;
@@ -901,7 +945,7 @@ a:focus {
     text-align: center;
 }
 
-.catalog > p, .license > p, .contact > p{
+.catalog > p, .license > p, .contact > p, .pcp-contact > p{
     color: white;
     font-size: calc(0.625vw + 1.25vh);
     text-align: center;
@@ -913,7 +957,7 @@ a:focus {
     font-size: calc(0.5vw + 1vh);
 }
 
-.contact > p > a:link{
+.contact > p > a:link, .pcp-contact > p > a:link{
     text-decoration: none;
     color: white;
 }
@@ -923,7 +967,11 @@ a:focus {
     margin-bottom: 12vh;
 }
 
-.contact > p {
+.pcp-contact{
+    margin-top: 10vh;
+}
+
+.contact > p, .pcp-contact > p{
     margin-left: 3vw;
     margin-right: 3vw;
 }
@@ -940,6 +988,7 @@ a:focus {
     margin: 0;
     padding: 0;
     width: 100vw;
+    min-height: 70vh;
     position: relative;
     font-family: 'Courgette', cursive;
 }
@@ -1062,10 +1111,8 @@ a:focus {
 }
 
 .pcp-main-about{
-    margin-top: 10vh;
     position: relative;
-    padding-left: 10vw;
-    padding-right: 10vw;
+    min-height: 80vh;
 }
 
 

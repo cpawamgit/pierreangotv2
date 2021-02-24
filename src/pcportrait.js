@@ -29,7 +29,7 @@ function PcPortait(props) {
                     <Displayer format="pcp-"/>
                 </Route>
                 <Route path="/about">
-                    <About language={props.language} toggleLanguage={props.toggleLanguage}/>
+                    <About format="pcp-" language={props.language} toggleLanguage={props.toggleLanguage}/>
                 </Route>
             </Switch>
         </Router>

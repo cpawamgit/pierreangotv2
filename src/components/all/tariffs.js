@@ -1,5 +1,5 @@
 const tariffs = 
-<div className="tariffs-wrapper main-about-text">
+<div className="tariffs-wrapper" >
 <p>Opus 1</p>
 <ul>
 <li style={{textShadow: "none"}} >le concert des profs : libre de droit</li>

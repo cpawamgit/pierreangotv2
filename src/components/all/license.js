@@ -1,6 +1,6 @@
 const license = {
     fr:
- <div className="license main-about-text">
+ <div className="license">
 <p>Toute les partitions sur ce site sont libres au téléchargement à titre d'utilisation hors exécution public.</p>
 <p>Pour tout concert ou concours un droit d'exécution sera demandé.</p>
 <p>Les partitions seront librement dupliqués, mais aucune revente quelqu'en soit la forme ne sera autorisé,</p>
@@ -21,7 +21,7 @@ const license = {
 <p>valable pour tout pays.</p>
 </div>,
     en:
-    <div className="license main-about-text">
+    <div className="license">
 <p>All the scores on this site are free to download for non-public performance.</p>
 <p>For any concert or competition a performing right will be requested.</p>
 <p>The partitions will be freely duplicated, but no resale of any kind will be allowed,</p>

@@ -1,5 +1,5 @@
 const catalog = {
-    fr: <div className="catalog main-about-text">
+    fr: <div className="catalog">
     <p>Classement du catalogue par instrumentation :</p>
     <p>2 Pianos :Opus 20</p>
     <p>2 Pianos et ensemble instrumental : Opus 28</p>
@@ -51,7 +51,7 @@ const catalog = {
     <p>Violoncelle seul : Opus 15 / Opus 17 /Opus 47</p>
     <p>Octuor cl/c/bn/ 2v/alt/vlc/cb : Opus 47</p>
     </div>,
-    en: <div className="catalog main-about-text">
+    en: <div className="catalog">
     <p>Catalog classification by instrumentation:</p>
     <p>2 Pianos: Opus 20</p>
     <p>2 Pianos and instrumental ensemble: Opus 28</p>
