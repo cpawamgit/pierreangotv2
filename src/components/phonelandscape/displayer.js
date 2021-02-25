@@ -65,7 +65,7 @@ function Displayer(props) {
 
     const pages = <Page pageNumber={pageNumber}
     scale={scale}
-    height={document.documentElement.clientHeight * 0.9} 
+    height={document.documentElement.clientHeight * 1} 
         />
     
 
