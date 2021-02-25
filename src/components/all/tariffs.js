@@ -1,5 +1,8 @@
 const tariffs = 
 <div className="tariffs-wrapper" >
+<p>Droit pour chaque exécution publique</p>
+<p>/</p>
+<p>Right for each public performance</p>
 <p>Opus 1</p>
 <ul>
 <li style={{textShadow: "none"}} >le concert des profs : libre de droit</li>
