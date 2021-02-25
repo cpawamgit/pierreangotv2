@@ -60,11 +60,11 @@ function Browse(props) {
     let buttons = jsonPath.map(item => {
       if (item.type === "dir") {
         return (
-          <Link onClick={scrollToTop} className="link folder-link" key={`${item.name}`} to={`${url}/${item.name}`}><button className={`${props.format}folder-btn`} style={{height: "8vh", width: "16vw"}}><p style={{fontSize: "calc(1vw + 0.5vh)"}}>{item.name}</p></button></Link>
+          <Link onClick={scrollToTop} className="link folder-link" key={`${item.name}`} to={`${url}/${item.name}`}><button className={`${props.format}folder-btn`} style={{height: "12vh", width: "28vw"}}><p style={{fontSize: "calc(2vw + 1vh)"}}>{item.name}</p></button></Link>
         );
       } else {
         return (
-          <Link onClick={scrollToTop} className="link file-link" key={`${item.name}`} to={`/displayer?file=/${dirPath.join("/")}/${item.name}`}><button className={`${props.format}file-btn`} style={{height: "16vh", width: "16vw"}}><p style={{fontSize: "calc(1vw + 0.5vh)"}}>{item.name}</p></button></Link>
+          <Link onClick={scrollToTop} className="link file-link" key={`${item.name}`} to={`/displayer?file=/${dirPath.join("/")}/${item.name}`}><button className={`${props.format}file-btn`} style={{height: "24vh", width: "36vw"}}><p style={{fontSize: "calc(2vw + 1vh)"}}>{item.name}</p></button></Link>
         );
       }
     });

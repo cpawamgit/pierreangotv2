@@ -96,7 +96,7 @@ function Displayer(props) {
             <p id="page-counter" style={{color: "black"}}>
                 Page {pageNumber || (numPages ? 1 : '--')} of {numPages || '--'}
             </p>
-            <div id={`${props.format}btn-container-left`} style={{flexDirection: "row", height: "50px", width: "60vw", top: "93vh", left: "30vw"}}>
+            <div id={`${props.format}btn-container-left`} style={{flexDirection: "row", height: "50px", width: "60vw", top: "91vh", left: "30vw"}}>
                 <button
                     className={`${props.format}doc-nav-button previous-btn`} 
                     type="button"

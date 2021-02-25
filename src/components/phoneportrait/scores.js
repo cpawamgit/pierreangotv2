@@ -48,11 +48,11 @@ function Scores(props) {
                     <img id="center-bg" src={concert} width="1800px"></img>
                 </div>
                 <div className="pcp-header-scores">
-                    <h1 id="pcp-main-title">{language === "fr" ? "Pierre Angot, Compositeur Français" : "Pierre Angot, French Composer"}</h1>
-                    <ul className="pcp-nav">
-                        <div className="pcp-nav-list-container"><li><Link id="home-btn" className="pcp-nav-list link-bg" to="/">{language === "fr" ? "accueil" : "home"}</Link></li></div>
-                        <div className="pcp-nav-list-container"><li><a className="pcp-nav-list link-bg" href="https://fr.wikipedia.org/wiki/Pierre_Angot" target="_blank" rel="norefferer">{language === "fr" ? "wikipedia" : "wikipedia"}</a></li></div>
-                        <div className="pcp-nav-list-container"><li><Link className="pcp-nav-list link-bg" to="/about">{language === "fr" ? "Tarifs, catalogue, licence et contact" : "Tariffs, catalog, license and contact"}</Link></li></div>
+                    <h1 style={{fontSize: "calc(3vw + 1.5vh)"}} id="pcp-main-title">{language === "fr" ? "Pierre Angot, Compositeur Français" : "Pierre Angot, French Composer"}</h1>
+                    <ul className="pcp-nav" style={{width: "100vw", height:"20vh", marginLeft: "0", left: "0", padding: 0, flexDirection: "column"}}>
+                        <div className="pcp-nav-list-container"><li><Link style={{fontSize: "calc(2vw + 1.25vh)", padding: "0"}} id="home-btn" className="pcp-nav-list link-bg" to="/">{language === "fr" ? "accueil" : "home"}</Link></li></div>
+                        <div className="pcp-nav-list-container"><li><a style={{fontSize: "calc(2vw + 1.25vh)", padding: "0"}} className="pcp-nav-list link-bg" href="https://fr.wikipedia.org/wiki/Pierre_Angot" target="_blank" rel="norefferer">{language === "fr" ? "wikipedia" : "wikipedia"}</a></li></div>
+                        <div className="pcp-nav-list-container"><li><Link style={{fontSize: "calc(2vw + 1.25vh)", padding: "0"}} className="pcp-nav-list link-bg" to="/about">{language === "fr" ? "Tarifs, catalogue, licence et contact" : "Tariffs, catalog, license and contact"}</Link></li></div>
                     </ul>
                 </div>
                 <FileBrowser format="pcp-"/>
