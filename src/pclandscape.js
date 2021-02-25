@@ -12,7 +12,7 @@ import {
 import Home from "./components/pclandscape/home";
 import About from "./components/pclandscape/about";
 import Scores from "./components/pclandscape/scores";
-import Displayer from "./components/all/displayer";
+import Displayer from "./components/phonelandscape/displayer";
 
 function PcLandscape(props) {
     return (
@@ -28,7 +28,7 @@ function PcLandscape(props) {
                     <Displayer format=""/>
                 </Route>
                 <Route path="/about">
-                    <About language={props.language} toggleLanguage={props.toggleLanguage}/>
+                    <About format="" language={props.language} toggleLanguage={props.toggleLanguage}/>
                 </Route>
             </Switch>
         </Router>

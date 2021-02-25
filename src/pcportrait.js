@@ -12,7 +12,7 @@ import {
 import Home from "./components/pcportrait/home";
 import About from "./components/pcportrait/about";
 import Scores from "./components/pcportrait/scores";
-import Displayer from "./components/all/displayer";
+import Displayer from "./components/phoneportrait/displayer";
 
 
 function PcPortait(props) {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-    BrowserRouter as Router,
+    HashRouter as Router,
     Switch,
     Route,
     Link,
@@ -12,13 +12,23 @@ import {
 import Home from "./components/phonelandscape/home";
 import About from "./components/phonelandscape/about";
 import Scores from "./components/phonelandscape/scores";
+import Displayer from "./components/phonelandscape/displayer";
 
-function PhoneLandscape() {
+function PhoneLandscape(props) {
     return (
         <Router>
             <Switch>
                 <Route exact path="/">
-                    <Home />
+                    <Home language={props.language} toggleLanguage={props.toggleLanguage}/>
+                </Route>
+                <Route path="/scores">
+                    <Scores language={props.language} toggleLanguage={props.toggleLanguage}/>
+                </Route>
+                <Route path="/displayer">
+                    <Displayer format=""/>
+                </Route>
+                <Route path="/about">
+                    <About format="" language={props.language} toggleLanguage={props.toggleLanguage}/>
                 </Route>
             </Switch>
         </Router>

@@ -123,7 +123,9 @@ function Home(props) {
                         timeout={500}
                         classNames="about-tariffs-anim"
                     >
+                        <div className={`${props.format}main-about-text`}>
                         {tariffs}
+                        </div>
                     </CSSTransition>
                     {props.language === "fr" ?
                         <CSSTransition
@@ -133,7 +135,9 @@ function Home(props) {
                             timeout={500}
                             classNames="about-text-anim"
                         >
+                            <div className={`${props.format}main-about-text`}>
                             {catalog.fr}
+                            </div>
                         </CSSTransition>
                         :
                         <CSSTransition
@@ -143,7 +147,9 @@ function Home(props) {
                             timeout={500}
                             classNames="about-text-anim"
                         >
+                            <div className={`${props.format}main-about-text`}>
                             {catalog.en}
+                            </div>
                         </CSSTransition>
                     }
                     {props.language === "fr" ?
@@ -154,7 +160,9 @@ function Home(props) {
                             timeout={500}
                             classNames="about-text-anim"
                         >
+                            <div className={`${props.format}main-about-text`}>
                             {license.fr}
+                            </div>
                         </CSSTransition>
                         :
                         <CSSTransition
@@ -164,7 +172,9 @@ function Home(props) {
                             timeout={500}
                             classNames="about-text-anim"
                         >
+                            <div className={`${props.format}main-about-text`}>
                             {license.en}
+                            </div>
                         </CSSTransition>
                     }
                     <CSSTransition
@@ -174,7 +184,7 @@ function Home(props) {
                         timeout={500}
                         classNames="about-tariffs-anim"
                     >
-                        <div className="contact main-about-text">
+                        <div className={`${props.format}main-about-text ${props.format}contact`}>
                             <p>E-Mail : <a href="mailto:cyril.morin.tai@gmail.com" rel="noreferrer">cyril.morin.tai@gmail.com</a></p>
                             <p>Tel : 0033 6 63 59 28 28 / 0036 70 63 74 839</p>
                             <p>{language === "fr" ? "Le contact donné à la fin des partitions n'est plus valide, veuillez vous référer à cette section" : "The contact given at the end of the partitions is no longer valid, please refer to this section"}</p>
