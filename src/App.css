@@ -955,6 +955,11 @@ a:focus {
     text-align: center;
 }
 
+.tariffs-wrapper-phone-landscape > p, .tariffs-wrapper-phone-landscape > ul > li{
+    font-size: calc(0.75vw + 1.5vh);
+
+}
+
 .catalog > p, .license > p, .contact > p, .pcp-contact > p{
     color: white;
     font-size: calc(0.625vw + 1.25vh);

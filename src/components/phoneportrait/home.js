@@ -59,7 +59,7 @@ function Home(props) {
 
     return isReady ? (
         <div className="home-main-wrapper">
-            <button id="pcp-language" onClick={props.toggleLanguage}><img src={props.language === "fr" ? "./union jack.png" : "./french flag.png"}/></button>
+            <button id="pcp-language" onClick={props.toggleLanguage}><img src={props.language === "fr" ? "./union jack.png" : "./french flag.png"} height="12px" /></button>
             <div id="pcp-background-container-global" className="pcp-background-container-global">
                 <img src="sitebackground2.png" width="1920px" />
                 <img src="sitebackground2.png" width="1920px" />

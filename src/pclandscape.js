@@ -12,7 +12,7 @@ import {
 import Home from "./components/pclandscape/home";
 import About from "./components/pclandscape/about";
 import Scores from "./components/pclandscape/scores";
-import Displayer from "./components/phonelandscape/displayer";
+import Displayer from "./components/all/displayer";
 
 function PcLandscape(props) {
     return (
