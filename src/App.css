@@ -3,11 +3,6 @@
 ------------------------------------------------------------------------------------------------------------*/
 @import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
 
-
-.App {
-    
-}
-
 #language{
     position: absolute;
     border: none;
@@ -123,7 +118,7 @@
     position: relative;
     display: flex;
     justify-content: center;
-    align-items: center;
+
     flex-direction: row;
     color: white;
     height: 100vh;
@@ -308,7 +303,7 @@
   }
 
 #center-bg{
-    opacity: 0.5;
+    opacity: 0.8;
 }
 
 button{    
@@ -461,6 +456,20 @@ button{
 /*------------------------------------------------------------------------------------------------------------
 ----------------------------------------Pc Landscape-(pcl)----------------------------------------------------
 ------------------------------------------------------------------------------------------------------------*/
+/*
+#appear-later{
+    animation-name: appear-later;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-delay: 3s;
+    display: none;
+}
+
+@keyframes appear-later{
+    from{display: none;}
+    to{display: block;}
+}*/
+
 #svg-anim{
     position: absolute;
     z-index: 5;
@@ -499,6 +508,10 @@ button{
     transition-delay: 2s;
 }
 
+.nav-appear-done{
+    opacity: 1;
+}
+
 .sub-title-appear::before{
     transform: scaleX(0);  
 }
@@ -509,7 +522,7 @@ button{
     transition: transform 2s;
     transition-timing-function: cubic-bezier(0,.63,1,-0.28);
     transition-property: transform;
-    transition-delay: 4s;
+    transition-delay: 2s;
 }
 
 .sub-title-appear-active{   
@@ -518,7 +531,7 @@ button{
     opacity: 1;
     transition: transform 2s ease-out, color 2s ease-out, opacity 2s ease-out;
     transition-property: transform, color, opacity;
-    transition-delay: 2s;
+    transition-delay: 0s;
     
     /* transition: color 2s ease-out;
     transition-property: transform;
@@ -867,30 +880,6 @@ a:focus {
     bottom: -20px;
     background-color: rgb(182, 39, 39);
 }
-
-#pcl-subtitle::after{
-    /* content: '';
-    position: absolute;
-    left: 0;
-    width: 100%;
-    top: -20px;
-    height: calc(0.8vh + 1.6vw);
-    background: rgba(255, 255, 255, 0.034);
-    z-index: -33;
-    border-radius: 10% 20%; */
-}
-/*
-#pcl-subtitle{
-    position: relative;
-    font-size: calc(1.75vw + 0.825vh);
-    margin-top: 23vh;
-    margin-bottom: 35vh;
-    left: 5vw;
-    padding-right: 0vw;
-    text-align: right;
-    text-shadow: 2px 2px 0px white;
-    text-decoration: underline 2px solid rgb(182, 39, 39);;
-}*/
 
 .pcl-main-text{
     position: relative;

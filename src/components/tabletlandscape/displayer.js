@@ -65,12 +65,18 @@ function Displayer(props) {
 
     const pages = <Page pageNumber={pageNumber}
     scale={scale}
-    height={document.documentElement.clientHeight * 0.8} 
+    height={document.documentElement.clientHeight * 0.9} 
         />
     
 
     return (
         <div className="display-wrapper">
+            {props.displayPopUp && <div style={{position:"absolute", backgroundColor: "white", height: "100vh", widows: "100vw", zIndex: "1000", margin:"0", paddingLeft: "3vw", paddingRight: "3vw"}} onClick={() => props.setDisplayPopUp()}>
+                <h2>L'affichage des partitions A4 sera meilleur si l'appareil est tenu verticalement, pour les A3, horizontalement</h2>
+                <h2>Toucher l'écran pour faire disparaître ce message</h2>
+                <h2 style={{marginTop: "10vh"}}>The display of A4 partitions will be better if the device is held vertically, for A3, horizontally</h2>
+                <h2> Touch the screen to make this message disappear </h2>
+            </div>}
             <div id={`${props.format}doc-wrapper`} className={`${props.format}doc-wrapper`} style={{marginLeft: "0", width: "100vw", overflow: "auto", backgroundColor: "transparent"}}>
                 <Document
                     file={file}

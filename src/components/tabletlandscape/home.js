@@ -72,8 +72,8 @@ function Home(props) {
                     <div id="black-bg"></div>
                     <svg id="svg-anim" width="1920" height="1080">
             <circle cx="1000" cy="550" r="1000" strokeWidth="2000" stroke="black" fill="transparent">
-            <animate attributeName="r" values="1000;1150;" dur="1s" repeatCount="1" fill="freeze"/>
-                <animate attributeName="r" values="1150;2200;" begin="4s" dur="2s" repeatCount="1" fill="freeze"/>
+            <animate attributeName="r" values="1000;1150;" dur="0.5s" repeatCount="1" fill="freeze"/>
+                <animate attributeName="r" values="1150;2200;" begin="1.5s" dur="2s" repeatCount="1" fill="freeze"/>
                 </circle>
          </svg> 
                 </div>
@@ -92,10 +92,10 @@ function Home(props) {
                         timeout={4000}
                         appear={true}
                     >
-                    <ul className="pcl-nav">
-                        <div className="pcl-nav-list-container"><li><Link className="pcl-nav-list" to="/scores/sitePdfs">{language === "fr" ? "explorer les partitions" : "browse the scores"}</Link></li></div>
-                        <div className="pcl-nav-list-container"><li><a className="pcl-nav-list" href="https://fr.wikipedia.org/wiki/Pierre_Angot" target="_blank" rel="norefferer">{language === "fr" ? "wikipedia" : "wikipedia"}</a></li></div>
-                        <div className="pcl-nav-list-container"><li><Link className="pcl-nav-list" to="/about">{language === "fr" ? "Tarifs, catalogue, licence et contact" : "Tariffs, catalog, license and contact"}</Link></li></div>
+                    <ul className="pcl-nav" style={{width: "70vw", marginLeft: "0vw", marginTop: "5vh"}}>
+                        <div className="pcl-nav-list-container"><li><Link style={{fontSize: "calc(0.75vw + 1.5vh)"}} className="pcl-nav-list" to="/scores/sitePdfs">{language === "fr" ? "explorer les partitions" : "browse the scores"}</Link></li></div>
+                        <div className="pcl-nav-list-container"><li><a style={{fontSize: "calc(0.75vw + 1.5vh)"}} className="pcl-nav-list" href="https://fr.wikipedia.org/wiki/Pierre_Angot" target="_blank" rel="norefferer">{language === "fr" ? "wikipedia" : "wikipedia"}</a></li></div>
+                        <div className="pcl-nav-list-container"><li><Link style={{fontSize: "calc(0.75vw + 1.5vh)"}} className="pcl-nav-list" to="/about">{language === "fr" ? "Tarifs, catalogue, licence et contact" : "Tariffs, catalog, license and contact"}</Link></li></div>
                     </ul>
                     </CSSTransition>
                 </div>

@@ -28,11 +28,18 @@ class App extends React.Component {
       width : document.documentElement.clientWidth,
       height : document.documentElement.clientHeight,
       language : "fr",
+      displayPopUp : true
     }
     this.refresh = this.refresh.bind(this);
     this.toggleLanguage = this.toggleLanguage.bind(this);
+    this.setDisplayPopUp = this.setDisplayPopUp.bind(this);
   }
 
+  setDisplayPopUp(){
+    this.setState({
+      displayPopUp: false
+    })
+  }
 //   cachedImages = async (srcArray) => {
 //     const promises = await srcArray.map((src) => {
 //         return new Promise(function (resolve, reject) {
@@ -55,6 +62,7 @@ toggleLanguage(){
 
   componentDidMount(){
     window.addEventListener('resize', this.refresh);
+    document.title = "Pierre Angot";
     // let arr = ['concert3.jpg'];    
     // this.cachedImages(arr);
   }
@@ -79,11 +87,11 @@ toggleLanguage(){
   chooseDisplay(ratio, size){
     let toDisplay = null;
     if (ratio < 1.6){
-      toDisplay = this.state.width > this.state.height ? <TabletLandscape language={this.state.language} toggleLanguage={this.toggleLanguage}/> : <TabletPortait language={this.state.language} toggleLanguage={this.toggleLanguage}/>
+      toDisplay = this.state.width > this.state.height ? <TabletLandscape language={this.state.language} toggleLanguage={this.toggleLanguage} setDisplayPopUp={this.setDisplayPopUp} displayPopUp={this.state.displayPopUp}/> : <TabletPortait language={this.state.language} toggleLanguage={this.toggleLanguage} setDisplayPopUp={this.setDisplayPopUp} displayPopUp={this.state.displayPopUp}/>
     } else if (size >= 1500){
       toDisplay = this.state.width > this.state.height ? <PcLandscape language={this.state.language} toggleLanguage={this.toggleLanguage}/> : <PcPortait language={this.state.language} toggleLanguage={this.toggleLanguage}/>
     } else {
-      toDisplay = this.state.width > this.state.height ? <PhoneLandscape language={this.state.language} toggleLanguage={this.toggleLanguage}/> : <PhonePortait language={this.state.language} toggleLanguage={this.toggleLanguage}/>
+      toDisplay = this.state.width > this.state.height ? <PhoneLandscape language={this.state.language} toggleLanguage={this.toggleLanguage} setDisplayPopUp={this.setDisplayPopUp} displayPopUp={this.state.displayPopUp}/> : <PhonePortait language={this.state.language} toggleLanguage={this.toggleLanguage} setDisplayPopUp={this.setDisplayPopUp} displayPopUp={this.state.displayPopUp}/>
     }
     return toDisplay;
   }

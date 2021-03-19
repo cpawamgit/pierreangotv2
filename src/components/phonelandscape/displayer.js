@@ -30,6 +30,7 @@ function Displayer(props) {
     let file = query.get("file");
     let ele;
     let pos;
+    console.log(`displaypopup: ${props.displayPopUp}`)
 
     useEffect(() => {
     }, []);
@@ -71,6 +72,12 @@ function Displayer(props) {
 
     return (
         <div className="display-wrapper">
+            {props.displayPopUp && <div style={{position:"absolute", backgroundColor: "white", height: "100vh", widows: "100vw", zIndex: "1000", margin:"0", paddingLeft: "3vw", paddingRight: "3vw"}} onClick={() => props.setDisplayPopUp()}>
+                <h2>L'affichage des partitions A4 sera meilleur si l'appareil est tenu verticalement, pour les A3, horizontalement</h2>
+                <h2>Toucher l'écran pour faire disparaître ce message</h2>
+                <h2 style={{marginTop: "10vh"}}>The display of A4 partitions will be better if the device is held vertically, for A3, horizontally</h2>
+                <h2> Touch the screen to make this message disappear </h2>
+            </div>}
             <div id={`${props.format}doc-wrapper`} className={`${props.format}doc-wrapper`} style={{marginLeft: "0", width: "100vw", height: "100vh", marginTop: "0", overflow: "auto", backgroundColor: "transparent"}}>
                 <Document
                     file={file}
@@ -93,7 +100,7 @@ function Displayer(props) {
                 download={file}
                 href={file}
             ></a>
-            <p id="page-counter" style={{color: "white"}}>
+            <p id="page-counter" style={{color: "white", mixBlendMode: "difference"}}>
                 Page {pageNumber || (numPages ? 1 : '--')} of {numPages || '--'}
             </p>
             <div id={`${props.format}btn-container-left`} style={{height: "240px"}}>
