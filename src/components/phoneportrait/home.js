@@ -70,45 +70,45 @@ function Home(props) {
                 <div id="pcp-background-container" className="pcp-background-container">
                     <img src={concert} id="pcp-piano-jpg" height="1020px"/>
                     <div id="black-bg"></div>
-                    <svg id="svg-anim" width="1920" height="1080">
+                    {/* <svg id="svg-anim" width="1920" height="1080">
             <circle cx="1000" cy="550" r="1000" strokeWidth="2000" stroke="black" fill="transparent">
             <animate attributeName="r" values="1000;1150;" dur="0.5s" repeatCount="1" fill="freeze"/>
                 <animate attributeName="r" values="1150;2200;" begin="1.5s" dur="2s" repeatCount="1" fill="freeze"/>
                 </circle>
-         </svg> 
+         </svg>  */}
                 </div>
                 <div className="pcp-header">
-                    <CSSTransition
+                    {/* <CSSTransition
                         in={true}
                         classNames="title"
                         timeout={2000}
                         appear={true}
-                    >
+                    > */}
                         <h1 style={{fontSize: "calc(3vw + 1.5vh)"}} id="pcp-main-title">{language === "fr" ? "Pierre Angot, Compositeur Français" : "Pierre Angot, French Composer"}</h1>
-                    </CSSTransition>
+                    {/* </CSSTransition>
                     <CSSTransition
                         in={true}
                         classNames="nav"
                         timeout={4000}
                         appear={true}
-                    >
+                    > */}
                     <ul className="pcp-nav" style={{width: "100vw", height:"20vh", marginLeft: "0", left: "0", padding: 0, flexDirection: "column"}}>
                         <div className="pcp-nav-list-container"><li><Link style={{fontSize: "calc(1.5vw + 1vh)", padding: "0"}} className="pcp-nav-list" to="/scores/sitePdfs">{language === "fr" ? "explorer les partitions" : "browse the scores"}</Link></li></div>
                         <div className="pcp-nav-list-container"><li><a style={{fontSize: "calc(1.5vw + 1vh)", padding: "0"}} className="pcp-nav-list" href="https://fr.wikipedia.org/wiki/Pierre_Angot" target="_blank" rel="norefferer">{language === "fr" ? "wikipedia" : "wikipedia"}</a></li></div>
                         <div className="pcp-nav-list-container"><li><Link style={{fontSize: "calc(1.5vw + 1vh)", padding: "0"}} className="pcp-nav-list" to="/about">{language === "fr" ? "Tarifs, catalogue, licence et contact" : "Tariffs, catalog, license and contact"}</Link></li></div>
                     </ul>
-                    </CSSTransition>
+                    {/* </CSSTransition> */}
                 </div>
                 <div className="pcp-main">
                     <div id="pcp-subtitle-container" style={{left: "10vw", marginTop: "10vh"}}>
-                        <CSSTransition
+                        {/* <CSSTransition
                             in={true}
                             classNames="sub-title"
                             timeout={6000}
                             appear={true}
-                        >
-                            <h2 style={{fontSize: "calc(2.5vw + 1.25vh)"}} id="pcp-subtitle" onClick={() => window.scrollTo({top: 290, behavior: "smooth"})}>{language === "fr" ? "\"Ajouter et ne rien détruire\"" : "\"Add and do not destroy\""}</h2>
-                        </CSSTransition>
+                        > */}
+                            <h2 style={{fontSize: "calc(2.5vw + 1.25vh)", color: "white"}} id="pcp-subtitle" onClick={() => window.scrollTo({top: 290, behavior: "smooth"})}>{language === "fr" ? "\"Ajouter et ne rien détruire\"" : "\"Add and do not destroy\""}</h2>
+                        {/* </CSSTransition> */}
                     </div>
                     <p style={{fontSize: "calc(0.825vh + 1.75vw)", top: "4vh"}} className="pcp-main-text">{language === "fr" ? "Pierre ANGOT est un compositeur français né en Normandie , le premier mars 1958." : "Pierre ANGOT is a French composer born in Normandy on March 1, 1958."}</p>
                     <p style={{fontSize: "calc(0.825vh + 1.75vw)"}} className="pcp-main-text">{language === "fr" ? "Dans sa jeunesse il fût autant musicien de jazz que d'orchestre, il sera aussi professeur de basson." : "In his youth he was as much a jazz musician as an orchestra, he was also a bassoon teacher."}</p>
