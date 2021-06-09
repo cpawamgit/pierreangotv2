@@ -117,7 +117,11 @@ function Home(props) {
                     <p style={{fontSize: "calc(0.825vh + 1.75vw)"}} className="pcp-main-text">{language === "fr" ? "Son engouement ira à des compositeurs tels qu'Henri Tomasi  ou  Henri Dutilleux pour renouveler le langage musical. La recherche obsessionnelle de nouvelles couleurs musicales, sans jamais se départir de l'héritage du passé, peut qualifier la démarche de Pierre ANGOT :  \"Ajouter et ne rien détruire\" pourrait être sa devise." : "His enthusiasm will go to composers such as Henri Tomasi or Henri Dutilleux to renew the musical language. The obsessive search for new musical colors, without ever departing from the heritage of the past, can qualify Pierre ANGOT's approach: \"Add and do not destroy anything\" could be his motto."}</p>
                     <p style={{textAlign: "right", fontSize: "calc(0.75vh + 1.5vw)"}}>Cyril Morin</p>
                 </div>
-                <div className="pcp-footer" style={{height: "10vh"}}>
+                <div className="pcp-footer" style={{
+                    height: "10vh",
+                    marginTop: "auto",
+                    marginBottom: 0
+                    }}>
                     <p id="pcp-footer-text">Designed by <a id="pcp-footer-link" href="http://www.cyrilmorin.fr" rel="noreferrer" target="_blank">Cyril Morin</a>, contact: <a href="mailto:cyril.morin.tai@gmail.com" rel="noreferrer">cyril.morin.tai@gmail.com</a></p>
                 </div>
             </div>
