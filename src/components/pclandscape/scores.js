@@ -56,7 +56,13 @@ function Scores(props) {
                     </ul>
                 </div>
                 <FileBrowser format=""/>
-                <div className="pcl-footer">
+                <div className="pcl-footer"
+                style={{
+                    marginTop: "auto",
+                    marginBottom: 0,
+                    height: "8vh"
+                }}
+                >
                     <p id="pcl-footer-text">Designed by <a id="pcl-footer-link" href="http://www.cyrilmorin.fr" rel="noreferrer" target="_blank">Cyril Morin</a>, contact: <a href="mailto:cyril.morin.tai@gmail.com" rel="noreferrer">cyril.morin.tai@gmail.com</a></p>
                 </div>
             </div>

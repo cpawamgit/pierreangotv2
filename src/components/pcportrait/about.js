@@ -192,7 +192,13 @@ function Home(props) {
                     </CSSTransition>
 
                 </div>
-                <div className="pcp-footer-about">
+                <div className="pcp-footer-about"
+                style={{
+                    marginTop: "auto",
+                    marginBottom: 0,
+                    height: "8vh"
+                }}
+                >
                     <p id="pcp-footer-text">Designed by <a id="pcp-footer-link" href="http://www.cyrilmorin.fr" rel="noreferrer" target="_blank">Cyril Morin</a>, contact: <a href="mailto:cyril.morin.tai@gmail.com" rel="noreferrer">cyril.morin.tai@gmail.com</a></p>
                 </div>
             </div>

@@ -80,7 +80,7 @@ function Home(props) {
 
     return isReady ? (
         <div className="home-main-wrapper">
-            <button id="language" onClick={props.toggleLanguage}><img src={props.language === "fr" ? "./union jack.png" : "./french flag.png"} /></button>
+            <button id="language" onClick={props.toggleLanguage}><img style={{marginRight: "1vw"}} height="20" src={props.language === "fr" ? "./union jack.png" : "./french flag.png"} /></button>
             <div id="pcl-background-container-global" className="pcl-background-container-global">
                 <img src="sitebackground2.png" width="1920px" />
                 <img src="sitebackground2.png" width="1920px" />
@@ -95,9 +95,9 @@ function Home(props) {
                 <div className="pcl-header">
                     <h1 id="pcl-main-title">{language === "fr" ? "Pierre Angot, Compositeur Français" : "Pierre Angot, French Composer"}</h1>
                     <ul className="pcl-nav">
-                        <div className="pcl-nav-list-container"><li><Link id="home-btn" className="pcl-nav-list" to="/">{language === "fr" ? "accueil" : "home"}</Link></li></div>
-                        <div className="pcl-nav-list-container"><li><Link className="pcl-nav-list" to="/scores/sitePdfs">{language === "fr" ? "explorer les partitions" : "browse the scores"}</Link></li></div>
-                        <div className="pcl-nav-list-container"><li><a className="pcl-nav-list" href="https://fr.wikipedia.org/wiki/Pierre_Angot" target="_blank" rel="norefferer">{language === "fr" ? "wikipedia" : "wikipedia"}</a></li></div>
+                        <div className="pcl-nav-list-container"><li><Link style={{fontSize: "calc(1vh + 1vw)"}} id="home-btn" className="pcl-nav-list" to="/">{language === "fr" ? "accueil" : "home"}</Link></li></div>
+                        <div className="pcl-nav-list-container"><li><Link style={{fontSize: "calc(1vh + 1vw)"}} className="pcl-nav-list" to="/scores/sitePdfs">{language === "fr" ? "explorer les partitions" : "browse the scores"}</Link></li></div>
+                        <div className="pcl-nav-list-container"><li><a style={{fontSize: "calc(1vh + 1vw)"}} className="pcl-nav-list" href="https://fr.wikipedia.org/wiki/Pierre_Angot" target="_blank" rel="norefferer">{language === "fr" ? "wikipedia" : "wikipedia"}</a></li></div>
                     </ul>
                 </div>
                 <div className="pcl-main-about">
@@ -123,7 +123,12 @@ function Home(props) {
                         timeout={500}
                         classNames="about-tariffs-anim"
                     >
-                        <div className={`${props.format}main-about-text`}>
+                        <div className={`${props.format}main-about-text`}
+                        style={{
+                            width: "50vw",
+                            marginLeft: "5vw"
+                        }}
+                        >
                         {tariffs}
                         </div>
                     </CSSTransition>
@@ -135,7 +140,12 @@ function Home(props) {
                             timeout={500}
                             classNames="about-text-anim"
                         >
-                            <div className={`${props.format}main-about-text`}>
+                            <div className={`${props.format}main-about-text`}
+                            style={{
+                                width: "50vw",
+                                marginLeft: "5vw"
+                            }}
+                            >
                             {catalog.fr}
                             </div>
                         </CSSTransition>
@@ -147,7 +157,12 @@ function Home(props) {
                             timeout={500}
                             classNames="about-text-anim"
                         >
-                            <div className={`${props.format}main-about-text`}>
+                            <div className={`${props.format}main-about-text`}
+                            style={{
+                                width: "50vw",
+                                marginLeft: "5vw"
+                            }}
+                            >
                             {catalog.en}
                             </div>
                         </CSSTransition>
@@ -160,7 +175,12 @@ function Home(props) {
                             timeout={500}
                             classNames="about-text-anim"
                         >
-                            <div className={`${props.format}main-about-text`}>
+                            <div className={`${props.format}main-about-text`}
+                            style={{
+                                width: "50vw",
+                                marginLeft: "5vw"
+                            }}
+                            >
                             {license.fr}
                             </div>
                         </CSSTransition>
@@ -172,7 +192,12 @@ function Home(props) {
                             timeout={500}
                             classNames="about-text-anim"
                         >
-                            <div className={`${props.format}main-about-text`}>
+                            <div className={`${props.format}main-about-text`}
+                            style={{
+                                width: "50vw",
+                                marginLeft: "5vw"
+                            }}
+                            >
                             {license.en}
                             </div>
                         </CSSTransition>
@@ -192,8 +217,14 @@ function Home(props) {
                     </CSSTransition>
 
                 </div>
-                <div className="pcl-footer-about">
-                    <p id="pcl-footer-text">Designed by <a id="pcl-footer-link" href="http://www.cyrilmorin.fr" rel="noreferrer" target="_blank">Cyril Morin</a>, contact: <a href="mailto:cyril.morin.tai@gmail.com" rel="noreferrer">cyril.morin.tai@gmail.com</a></p>
+                <div className="pcl-footer-about"
+                style={{
+                    marginTop: "auto",
+                    marginBottom: 0,
+                    height: "8vh"
+                }}
+                >
+                    <p style={{fontSize: "calc(1vh + 1vw)"}} id="pcl-footer-text">Designed by <a id="pcl-footer-link" href="http://www.cyrilmorin.fr" rel="noreferrer" target="_blank">Cyril Morin</a>, contact: <a href="mailto:cyril.morin.tai@gmail.com" rel="noreferrer">cyril.morin.tai@gmail.com</a></p>
                 </div>
             </div>
         </div>

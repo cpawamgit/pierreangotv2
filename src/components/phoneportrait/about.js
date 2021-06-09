@@ -123,7 +123,11 @@ function Home(props) {
                         timeout={500}
                         classNames="about-tariffs-anim"
                     >
-                        <div className={`${props.format}main-about-text`}>
+                        <div className={`${props.format}main-about-text`}
+                        style={{
+                            borderRadius: "25%"
+                        }}
+                        >
                             {tariffs}
                         </div>
                     </CSSTransition>
@@ -192,7 +196,13 @@ function Home(props) {
                     </CSSTransition>
 
                 </div>
-                <div className="pcp-footer-about" style={{height: "10vh"}}>
+                <div className="pcp-footer-about" 
+                style={{
+                    marginTop: "auto",
+                    marginBottom: 0,
+                    height: "10vh"
+                }}
+                >
                     <p id="pcp-footer-text">Designed by <a id="pcp-footer-link" href="http://www.cyrilmorin.fr" rel="noreferrer" target="_blank">Cyril Morin</a>, contact: <a href="mailto:cyril.morin.tai@gmail.com" rel="noreferrer">cyril.morin.tai@gmail.com</a></p>
                 </div>
             </div>

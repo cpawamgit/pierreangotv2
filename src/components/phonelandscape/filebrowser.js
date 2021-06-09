@@ -45,7 +45,7 @@ function Browse(props) {
     let tmp = url.split("/");
     tmp.pop();
     tmp = tmp.join("/");
-    backButton = <Link className="link back-link" to={tmp}><button className={`${props.format}back-btn`}><img src={previousFolder}/></button></Link>
+    backButton = <Link className="link back-link" to={tmp}><button className={`${props.format}back-btn`}><img height="40" src={previousFolder}/></button></Link>
   }
 
   try {
@@ -60,11 +60,11 @@ function Browse(props) {
     let buttons = jsonPath.map(item => {
       if (item.type === "dir") {
         return (
-          <Link onClick={scrollToTop} className="link folder-link" key={`${item.name}`} to={`${url}/${item.name}`}><button className={`${props.format}folder-btn`} style={{height: "8vh", width: "16vw"}}><p style={{fontSize: "calc(1vw + 0.5vh)"}}>{item.name}</p></button></Link>
+          <Link onClick={scrollToTop} className="link folder-link" key={`${item.name}`} to={`${url}/${item.name}`}><button className={`${props.format}folder-btn`} style={{height: "18vh", width: "16vw"}}><p style={{fontSize: "calc(1.2vw + 0.6vh)"}}>{item.name}</p></button></Link>
         );
       } else {
         return (
-          <Link onClick={scrollToTop} className="link file-link" key={`${item.name}`} to={`/displayer?file=/${dirPath.join("/")}/${item.name}`}><button className={`${props.format}file-btn`} style={{height: "16vh", width: "16vw"}}><p style={{fontSize: "calc(1vw + 0.5vh)"}}>{item.name}</p></button></Link>
+          <Link onClick={scrollToTop} className="link file-link" key={`${item.name}`} to={`/displayer?file=/${dirPath.join("/")}/${item.name}`}><button className={`${props.format}file-btn`} style={{height: "18vh", width: "16vw"}}><p style={{fontSize: "calc(1.2vw + 0.6vh)"}}>{item.name}</p></button></Link>
         );
       }
     });

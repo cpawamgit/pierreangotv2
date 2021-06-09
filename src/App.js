@@ -21,6 +21,10 @@ import PhoneLandscape from './phonelandscape';
 import PhonePortait from './phoneportrait';
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
+if (window.location.protocol !== "https:") {
+  window.location.protocol = "https:";
+}
+
 class App extends React.Component {
   constructor(props) {
     super(props);

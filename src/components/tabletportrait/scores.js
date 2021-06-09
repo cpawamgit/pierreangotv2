@@ -36,7 +36,7 @@ function Scores(props) {
     }, [])
     return isReady ? (
         <div>
-            <button id="pcp-language" onClick={props.toggleLanguage}><img src={props.language === "fr" ? "./union jack.png" : "./french flag.png"} height="12px"/></button>
+            <button id="pcp-language" onClick={props.toggleLanguage}><img src={props.language === "fr" ? "./union jack.png" : "./french flag.png"} height="20px"/></button>
             <div id="pcp-background-container-global" className="pcp-background-container-global">
                     <img src="/sitebackground2.png" width="1920px"/>
                     <img src="/sitebackground2.png" width="1920px"/>
@@ -49,15 +49,26 @@ function Scores(props) {
                 </div>
                 <div className="pcp-header-scores">
                     <h1 id="pcp-main-title">{language === "fr" ? "Pierre Angot, Compositeur Français" : "Pierre Angot, French Composer"}</h1>
-                    <ul className="pcp-nav">
-                        <div className="pcp-nav-list-container"><li><Link style={{fontSize: "calc(0.625vw + 1.25vh)"}} id="home-btn" className="pcp-nav-list link-bg" to="/">{language === "fr" ? "accueil" : "home"}</Link></li></div>
-                        <div className="pcp-nav-list-container"><li><a style={{fontSize: "calc(0.625vw + 1.25vh)"}} className="pcp-nav-list link-bg" href="https://fr.wikipedia.org/wiki/Pierre_Angot" target="_blank" rel="norefferer">{language === "fr" ? "wikipedia" : "wikipedia"}</a></li></div>
-                        <div className="pcp-nav-list-container"><li><Link style={{fontSize: "calc(0.625vw + 1.25vh)"}} className="pcp-nav-list link-bg" to="/about">{language === "fr" ? "Tarifs, catalogue, licence et contact" : "Tariffs, catalog, license and contact"}</Link></li></div>
+                    <ul className="pcp-nav"
+                    style={{
+                        width: "90vw",
+                        marginLeft: 0,
+                    }}
+                    >
+                        <div className="pcp-nav-list-container"><li><Link style={{fontSize: "calc(1.25vw + 1.25vh)"}} id="home-btn" className="pcp-nav-list link-bg" to="/">{language === "fr" ? "accueil" : "home"}</Link></li></div>
+                        <div className="pcp-nav-list-container"><li><a style={{fontSize: "calc(1.25vw + 1.25vh)"}} className="pcp-nav-list link-bg" href="https://fr.wikipedia.org/wiki/Pierre_Angot" target="_blank" rel="norefferer">{language === "fr" ? "wikipedia" : "wikipedia"}</a></li></div>
+                        <div className="pcp-nav-list-container"><li><Link style={{fontSize: "calc(1.25vw + 1.25vh)"}} className="pcp-nav-list link-bg" to="/about">{language === "fr" ? "Tarifs, catalogue, licence et contact" : "Tariffs, catalog, license and contact"}</Link></li></div>
                     </ul>
                 </div>
                 <FileBrowser format="pcp-"/>
-                <div className="pcp-footer">
-                    <p id="pcp-footer-text">Designed by <a id="pcp-footer-link" href="http://www.cyrilmorin.fr" rel="noreferrer" target="_blank">Cyril Morin</a>, contact: <a href="mailto:cyril.morin.tai@gmail.com" rel="noreferrer">cyril.morin.tai@gmail.com</a></p>
+                <div className="pcp-footer"
+                style={{
+                    marginTop: "auto",
+                    marginBottom: 0,
+                    height: "5vh"
+                }}
+                >
+                    <p style={{fontSize: "calc(1vh + 1vw)"}} id="pcp-footer-text">Designed by <a id="pcp-footer-link" href="http://www.cyrilmorin.fr" rel="noreferrer" target="_blank">Cyril Morin</a>, contact: <a href="mailto:cyril.morin.tai@gmail.com" rel="noreferrer">cyril.morin.tai@gmail.com</a></p>
                 </div>
             </div>
         </div>

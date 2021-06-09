@@ -3,6 +3,9 @@
 ------------------------------------------------------------------------------------------------------------*/
 @import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
 
+
+
+
 #language{
     position: absolute;
     border: none;
@@ -28,14 +31,13 @@
     opacity: 0;
 }
 
-
-
 @keyframes language-appear{
     from{opacity: 0;}
     to{opacity: 1;}
   }
 
 /****************************************File Browser********************************************************/
+
 .app-wrapper{
     display: flex;
     flex-direction: column;
@@ -984,7 +986,21 @@ a:focus {
     color: white;
 }
 
+.tariffs-wrapper > ul, .catalog > ul, .license > ul{
+    padding-left: 0;
+}
 
+@media(max-width: 1040px){
+    .tariffs-wrapper > p, ul > li, .catalog > p, .license > p, .contact > p, .pcp-contact > p{
+        font-size: calc(1vw + 1vh);
+    }
+}
+
+@media(max-height: 1040px){
+    .tariffs-wrapper > p, ul > li, .catalog > p, .license > p, .contact > p, .pcp-contact > p{
+        font-size: calc(1vw + 1vh);
+    }
+}
 /*------------------------------------------------------------------------------------------------------------
 ----------------------------------------Pc Portrait-(pcp)-----------------------------------------------------
 ------------------------------------------------------------------------------------------------------------*/

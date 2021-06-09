@@ -1,7 +1,7 @@
 const license = {
     fr:
  <div className="license">
-<p>Toute les partitions sur ce site sont libres au téléchargement à titre d'utilisation hors exécution public.</p>
+<p>Toutes les partitions sur ce site sont libres au téléchargement à titre d'utilisation hors exécution public.</p>
 <p>Pour tout concert ou concours un droit d'exécution sera demandé.</p>
 <p>Les partitions seront librement dupliqués, mais aucune revente quelqu'en soit la forme ne sera autorisé,</p>
 <p>tout commerce autour de la publication de ce matériel musical hors la simple exécution public donnera</p>

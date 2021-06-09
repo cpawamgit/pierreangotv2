@@ -68,7 +68,7 @@ function Home(props) {
             <div className="pcp-content-wrapper">
 
                 <div id="pcp-background-container" className="pcp-background-container">
-                    <img src={concert} id="pcp-piano-jpg" height="1020px"/>
+                    <img src={concert} id="pcp-piano-jpg" height="900px"/>
                     <div id="black-bg"></div>
                     {/* <svg id="svg-anim" width="1920" height="1080">
             <circle cx="1000" cy="550" r="1000" strokeWidth="2000" stroke="black" fill="transparent">
@@ -77,7 +77,11 @@ function Home(props) {
                 </circle>
          </svg>  */}
                 </div>
-                <div className="pcp-header">
+                <div className="pcp-header"
+                style={{
+                    marginTop: "13vh"
+                }}
+                >
                     {/* <CSSTransition
                         in={true}
                         classNames="title"
@@ -100,7 +104,7 @@ function Home(props) {
                     {/* </CSSTransition> */}
                 </div>
                 <div className="pcp-main">
-                    <div id="pcp-subtitle-container" style={{left: "10vw", marginTop: "10vh"}}>
+                    <div id="pcp-subtitle-container" style={{left: "10vw", marginTop: "5vh", height: "40vh"}}>
                         {/* <CSSTransition
                             in={true}
                             classNames="sub-title"

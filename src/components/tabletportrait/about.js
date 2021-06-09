@@ -80,7 +80,7 @@ function Home(props) {
 
     return isReady ? (
         <div className="home-main-wrapper">
-            <button id={`${props.format}language`} onClick={props.toggleLanguage}><img src={props.language === "fr" ? "./union jack.png" : "./french flag.png"} /></button>
+            <button id={`${props.format}language`} onClick={props.toggleLanguage}><img height="20" src={props.language === "fr" ? "./union jack.png" : "./french flag.png"} /></button>
             <div id="pcp-background-container-global" className="pcp-background-container-global">
                 <img src="sitebackground2.png" width="1920px" />
                 <img src="sitebackground2.png" width="1920px" />
@@ -92,12 +92,21 @@ function Home(props) {
                     <img style={{ opacity: "0.8" }} src={concert} id="pcp-piano-jpg" height={props.format === "" ? "1020px" : "100%"} />
                     <div id="black-bg"></div>
                 </div>
-                <div className="pcp-header">
+                <div className="pcp-header"
+                style={{
+                    marginTop: "7vh"
+                }}
+                >
                     <h1 id="pcp-main-title">{language === "fr" ? "Pierre Angot, Compositeur Français" : "Pierre Angot, French Composer"}</h1>
-                    <ul className="pcp-nav">
-                        <div className="pcp-nav-list-container"><li><Link style={{fontSize: "calc(0.625vw + 1.25vh)"}} id="home-btn" className="pcp-nav-list" to="/">{language === "fr" ? "accueil" : "home"}</Link></li></div>
-                        <div className="pcp-nav-list-container"><li><Link style={{fontSize: "calc(0.625vw + 1.25vh)"}} className="pcp-nav-list" to="/scores/sitePdfs">{language === "fr" ? "explorer les partitions" : "browse the scores"}</Link></li></div>
-                        <div className="pcp-nav-list-container"><li><a style={{fontSize: "calc(0.625vw + 1.25vh)"}} className="pcp-nav-list" href="https://fr.wikipedia.org/wiki/Pierre_Angot" target="_blank" rel="norefferer">{language === "fr" ? "wikipedia" : "wikipedia"}</a></li></div>
+                    <ul className="pcp-nav"
+                    style={{
+                        marginTop: "4vh",
+                        marginBottom: "4vh"
+                    }}
+                    >
+                        <div className="pcp-nav-list-container"><li><Link style={{fontSize: "calc(1.25vw + 1.25vh)"}} id="home-btn" className="pcp-nav-list" to="/">{language === "fr" ? "accueil" : "home"}</Link></li></div>
+                        <div className="pcp-nav-list-container"><li><Link style={{fontSize: "calc(1.25vw + 1.25vh)"}} className="pcp-nav-list" to="/scores/sitePdfs">{language === "fr" ? "explorer les partitions" : "browse the scores"}</Link></li></div>
+                        <div className="pcp-nav-list-container"><li><a style={{fontSize: "calc(1.25vw + 1.25vh)"}} className="pcp-nav-list" href="https://fr.wikipedia.org/wiki/Pierre_Angot" target="_blank" rel="norefferer">{language === "fr" ? "wikipedia" : "wikipedia"}</a></li></div>
                     </ul>
                 </div>
                 <div className="pcp-main-about">
@@ -108,10 +117,10 @@ function Home(props) {
                         timeout={500}
                     >
                         <div className={`${props.format}score-btns`}>
-                            <button onClick={() => setDisplay("tariffs")} className="score-display-btn"><h2 className="pcp-score-section">{props.language === "fr" ? "Les Tarifs" : "Tarrifs"}</h2></button>
-                            <button onClick={() => setDisplay("catalog")} className="score-display-btn"><h2 className="pcp-score-section">{props.language === "fr" ? "Catalogue" : "Catalog"}</h2></button>
-                            <button onClick={() => setDisplay("license")} className="score-display-btn"><h2 className="pcp-score-section">{props.language === "fr" ? "Licence" : "License"}</h2></button>
-                            <button onClick={() => setDisplay("contact")} className="score-display-btn"><h2 className="pcp-score-section">Contact</h2></button>
+                            <button onClick={() => setDisplay("tariffs")} className="score-display-btn"><h2 style={{fontSize: "calc(1vh + 1vw)"}} className="pcp-score-section">{props.language === "fr" ? "Les Tarifs" : "Tarrifs"}</h2></button>
+                            <button onClick={() => setDisplay("catalog")} className="score-display-btn"><h2 style={{fontSize: "calc(1vh + 1vw)"}} className="pcp-score-section">{props.language === "fr" ? "Catalogue" : "Catalog"}</h2></button>
+                            <button onClick={() => setDisplay("license")} className="score-display-btn"><h2 style={{fontSize: "calc(1vh + 1vw)"}} className="pcp-score-section">{props.language === "fr" ? "Licence" : "License"}</h2></button>
+                            <button onClick={() => setDisplay("contact")} className="score-display-btn"><h2 style={{fontSize: "calc(1vh + 1vw)"}} className="pcp-score-section">Contact</h2></button>
 
                         </div>
                     </CSSTransition>
@@ -192,8 +201,14 @@ function Home(props) {
                     </CSSTransition>
 
                 </div>
-                <div className="pcp-footer-about">
-                    <p id="pcp-footer-text">Designed by <a id="pcp-footer-link" href="http://www.cyrilmorin.fr" rel="noreferrer" target="_blank">Cyril Morin</a>, contact: <a href="mailto:cyril.morin.tai@gmail.com" rel="noreferrer">cyril.morin.tai@gmail.com</a></p>
+                <div className="pcp-footer-about"
+                style={{
+                    marginTop: "auto",
+                    marginBottom: 0,
+                    height: "5vh"
+                }}
+                >
+                    <p style={{fontSize: "calc(1vh + 1vw)"}} id="pcp-footer-text">Designed by <a id="pcp-footer-link" href="http://www.cyrilmorin.fr" rel="noreferrer" target="_blank">Cyril Morin</a>, contact: <a href="mailto:cyril.morin.tai@gmail.com" rel="noreferrer">cyril.morin.tai@gmail.com</a></p>
                 </div>
             </div>
         </div>

@@ -50,13 +50,19 @@ function Scores(props) {
                 <div className="pcl-header-scores">
                     <h1 id="pcl-main-title">{language === "fr" ? "Pierre Angot, Compositeur Français" : "Pierre Angot, French Composer"}</h1>
                     <ul className="pcl-nav" style={{marginLeft: "15vw", width: "65vw"}}>
-                        <div className="pcl-nav-list-container"><li><Link style={{fontSize: "calc(0.625vh + 1.25vw)"}} id="home-btn" className="pcl-nav-list link-bg" to="/">{language === "fr" ? "accueil" : "home"}</Link></li></div>
-                        <div className="pcl-nav-list-container"><li><a style={{fontSize: "calc(0.625vh + 1.25vw)"}} className="pcl-nav-list link-bg" href="https://fr.wikipedia.org/wiki/Pierre_Angot" target="_blank" rel="norefferer">{language === "fr" ? "wikipedia" : "wikipedia"}</a></li></div>
-                        <div className="pcl-nav-list-container"><li><Link style={{fontSize: "calc(0.625vh + 1.25vw)"}} className="pcl-nav-list link-bg" to="/about">{language === "fr" ? "Tarifs, catalogue, licence et contact" : "Tariffs, catalog, license and contact"}</Link></li></div>
+                        <div className="pcl-nav-list-container"><li><Link style={{fontSize: "calc(0.75vh + 1.5vw)"}} id="home-btn" className="pcl-nav-list link-bg" to="/">{language === "fr" ? "accueil" : "home"}</Link></li></div>
+                        <div className="pcl-nav-list-container"><li><a style={{fontSize: "calc(0.75vh + 1.5vw)"}} className="pcl-nav-list link-bg" href="https://fr.wikipedia.org/wiki/Pierre_Angot" target="_blank" rel="norefferer">{language === "fr" ? "wikipedia" : "wikipedia"}</a></li></div>
+                        <div className="pcl-nav-list-container"><li><Link style={{fontSize: "calc(0.75vh + 1.5vw)"}} className="pcl-nav-list link-bg" to="/about">{language === "fr" ? "Tarifs, catalogue, licence et contact" : "Tariffs, catalog, license and contact"}</Link></li></div>
                     </ul>
                 </div>
                 <FileBrowser format=""/>
-                <div className="pcl-footer" style={{height: "13vh"}}>
+                <div className="pcl-footer" 
+                style={{
+                    marginTop: "auto",
+                    marginBottom: 0,
+                    height: "13vh"
+                }}
+                >
                     <p id="pcl-footer-text">Designed by <a id="pcl-footer-link" href="http://www.cyrilmorin.fr" rel="noreferrer" target="_blank">Cyril Morin</a>, contact: <a href="mailto:cyril.morin.tai@gmail.com" rel="noreferrer">cyril.morin.tai@gmail.com</a></p>
                 </div>
             </div>
