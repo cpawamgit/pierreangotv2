@@ -13,6 +13,7 @@ function Home(props) {
         let gContainer;
         let sub;
         let blackBg;
+        let globalBgWrapper;
         //setting images--------------
         const bg = new Image();
         bg.onload = () => {
@@ -22,6 +23,7 @@ function Home(props) {
             gContainer = document.getElementById("pcl-background-container-global");
             sub = document.getElementById("pcl-subtitle");
             blackBg = document.getElementById("black-bg");
+            globalBgWrapper = document.getElementById("global-bg-wrapper");
         }
         bg.src = concert;
         bg.id = "pcl-piano-jpg";
@@ -35,10 +37,12 @@ function Home(props) {
                 piano.style.opacity = 1;
                 blackBg.style.opacity = 1;
                 sub.style.color = "rgb(255, 255, 255)";
+                globalBgWrapper.style.backgroundColor = "rgb(255, 255, 255)";
             } else if (posScroll < 450) {
                 piano.style.opacity = 1 - (posScroll * 2 / 1000);
                 blackBg.style.opacity = 1 - (posScroll * 2 / 1000);
                 sub.style.color = `rgb(${255 - (posScroll * 2 / 3.6)}, ${255 - (posScroll * 2 / 3.6)}, ${255 - (posScroll * 2 / 3.6)})`;
+                globalBgWrapper.style.backgroundColor = `rgb(${255 - (posScroll * 1.5 / 3.6)}, ${255 - (posScroll * 1.5 / 3.6)}, ${255 - (posScroll * 1.5 / 3.6)})`;
             } else {
                 piano.style.opacity = 0.1;
                 blackBg.style.opacity = 0.1;
@@ -61,9 +65,11 @@ function Home(props) {
         <div className="home-main-wrapper">
             <button id="language" onClick={props.toggleLanguage}><img src={props.language === "fr" ? "./union jack.png" : "./french flag.png"}/></button>
             <div id="pcl-background-container-global" className="pcl-background-container-global">
+                <div id="global-bg-wrapper">
                 <img src="sitebackground2.png" width="1920px" />
                 <img src="sitebackground2.png" width="1920px" />
                 <img src="sitebackground2.png" width="1920px" />
+                </div>
             </div>
             <div className="pcl-content-wrapper">
 
